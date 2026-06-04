@@ -8,7 +8,7 @@ export function VoiceSection() {
   return (
     <section
       id="testimonials"
-      className="bg-slate-100 text-slate-800 py-20 md:py-28"
+      className="bg-white text-slate-800 py-20 md:py-28"
     >
       <div className="container max-w-5xl">
         <AnimatedSection

@@ -103,7 +103,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-white text-slate-900 py-20 md:py-28 lg:py-32"
+      className="bg-slate-50 text-slate-900 py-20 md:py-28 lg:py-32"
     >
       <div className="container max-w-6xl">
         <AnimatedSection
