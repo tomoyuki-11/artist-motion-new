@@ -4,7 +4,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { getTestimonialsForHome } from "@/data/testimonials";
 import Link from "next/link";
 
-export function TestimonialsSection() {
+export function VoiceSection() {
   return (
     <section
       id="testimonials"
@@ -16,9 +16,12 @@ export function TestimonialsSection() {
           className="text-center mb-12 md:mb-16"
         >
           <div className="accent-line bg-slate-500 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-slate-800 tracking-tight">
-            お客様の声
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
+            Voice
           </h2>
+          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-4">
+            お客様の声
+          </p>
           <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto">
             保護者・門下生・会員の皆様からいただいた声の一部をご紹介します。
           </p>
