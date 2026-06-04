@@ -101,25 +101,34 @@ export function Navbar() {
               事業内容
             </Link>
           )}
-          <Link
-            href="/column"
-            className="text-slate-700 hover:text-slate-900 transition font-semibold"
-          >
-            子育てコラム
-          </Link>
           {isHome ? (
             <button
-              onClick={() => scrollToSection("testimonials")}
+              onClick={() => scrollToSection("voice")}
               className="text-slate-700 hover:text-slate-900 transition font-semibold"
             >
               お客様の声
             </button>
           ) : (
             <Link
-              href="/testimonials"
+              href="/#voice"
               className="text-slate-700 hover:text-slate-900 transition font-semibold"
             >
               お客様の声
+            </Link>
+          )}
+          {isHome ? (
+            <button
+              onClick={() => scrollToSection("column")}
+              className="text-slate-700 hover:text-slate-900 transition font-semibold"
+            >
+              子育てコラム
+            </button>
+          ) : (
+            <Link
+              href="/#column"
+              className="text-slate-700 hover:text-slate-900 transition font-semibold"
+            >
+              子育てコラム
             </Link>
           )}
           <Link
@@ -222,27 +231,36 @@ export function Navbar() {
                   事業内容
                 </Link>
               )}
-              <Link
-                href="/column"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-left rounded-xl px-4 py-3 text-slate-800 hover:bg-slate-50 transition font-semibold"
-              >
-                子育てコラム
-              </Link>
               {isHome ? (
                 <button
-                  onClick={() => scrollToSection("testimonials")}
+                  onClick={() => scrollToSection("voice")}
                   className="block w-full text-left rounded-xl px-4 py-3 text-slate-800 hover:bg-slate-50 transition font-semibold"
                 >
                   お客様の声
                 </button>
               ) : (
                 <Link
-                  href="/testimonials"
+                  href="/#voice"
                   onClick={() => setIsOpen(false)}
                   className="block w-full text-left rounded-xl px-4 py-3 text-slate-800 hover:bg-slate-50 transition font-semibold"
                 >
                   お客様の声
+                </Link>
+              )}
+              {isHome ? (
+                <button
+                  onClick={() => scrollToSection("column")}
+                  className="block w-full text-left rounded-xl px-4 py-3 text-slate-800 hover:bg-slate-50 transition font-semibold"
+                >
+                  子育てコラム
+                </button>
+              ) : (
+                <Link
+                  href="/#column"
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full text-left rounded-xl px-4 py-3 text-slate-800 hover:bg-slate-50 transition font-semibold"
+                >
+                  子育てコラム
                 </Link>
               )}
               <Link
