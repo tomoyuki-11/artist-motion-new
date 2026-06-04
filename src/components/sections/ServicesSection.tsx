@@ -111,9 +111,12 @@ export function ServicesSection() {
           className="mb-14 md:mb-20 text-center"
         >
           <div className="accent-line bg-slate-800 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-slate-800 tracking-tight">
-            事業内容
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
+            Service
           </h2>
+          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-4">
+            事業内容
+          </p>
           <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto">
             ARTIST
             MOTION〜アーティストモーション〜は、風舞流曲技太鼓・ベースボール・器械体操・フィットネスなど、心を豊かにする身体活動を提供しています。
