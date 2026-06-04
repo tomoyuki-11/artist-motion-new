@@ -7,7 +7,7 @@ import Link from "next/link";
 export function VoiceSection() {
   return (
     <section
-      id="testimonials"
+      id="voice"
       className="bg-white text-slate-800 py-20 md:py-28"
     >
       <div className="container max-w-5xl">
@@ -48,7 +48,7 @@ export function VoiceSection() {
             href="/testimonials"
             className="inline-flex items-center justify-center rounded-lg bg-slate-700 text-white px-6 py-3 text-sm font-medium hover:bg-slate-800 transition-colors"
           >
-            もっと見る
+            すべて見る
           </Link>
         </div>
       </div>

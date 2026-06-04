@@ -58,13 +58,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/column" className="hover:text-white transition-colors duration-200">
-                  子育てコラム
+                <a href="/#voice" className="hover:text-white transition-colors duration-200">
+                  お客様の声
                 </a>
               </li>
               <li>
-                <a href="/testimonials" className="hover:text-white transition-colors duration-200">
-                  お客様の声
+                <a href="/#column" className="hover:text-white transition-colors duration-200">
+                  子育てコラム
                 </a>
               </li>
               <li>
@@ -78,7 +78,7 @@ export function Footer() {
             <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5 text-slate-300">
               お問い合わせ
             </h4>
-            <p className="text-sm">Email: fuburyukodokai@gmail.com</p>
+            <p className="text-sm whitespace-nowrap">Email: fuburyukodokai@gmail.com</p>
             <p className="text-sm mt-1 whitespace-nowrap">Phone: 090-5464-6904</p>
             <div className="flex items-center gap-4 mt-4">
               <a

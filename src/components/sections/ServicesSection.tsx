@@ -103,7 +103,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-slate-50 text-slate-900 py-20 md:py-28 lg:py-32"
+      className="bg-indigo-50 text-slate-900 py-20 md:py-28 lg:py-32"
     >
       <div className="container max-w-6xl">
         <AnimatedSection
@@ -240,11 +240,6 @@ export function ServicesSection() {
                           />
                         )}
                       </div>
-                      {instagramEmbedTimedOut[shortcode] && (
-                        <p className="mt-2 text-xs text-slate-500">
-                          埋め込みが表示されない場合があります。下のボタンからご覧ください。
-                        </p>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -362,19 +357,6 @@ export function ServicesSection() {
           </div>
         </div>
 
-        <AnimatedSection animation="fade-up-lg" className="max-w-3xl mx-auto mt-16">
-          <div className="flex justify-center">
-            <AnimatedSection animation="fade-up-lg" delay={450}>
-              <Link
-                href="/column"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 text-white font-semibold shadow-lg hover:bg-orange-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300 focus-visible:ring-offset-slate-50"
-              >
-                <BookOpen className="w-5 h-5" />
-                <span>子育てコラムを見る</span>
-              </Link>
-            </AnimatedSection>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );

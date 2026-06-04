@@ -77,7 +77,7 @@ export function NewsSection() {
   }, [selectedNews?.image_url]);
 
   return (
-    <section id="news" className="bg-slate-50 text-slate-800 py-20 md:py-28">
+    <section id="news" className="bg-indigo-50 text-slate-800 py-20 md:py-28">
       <div className="container max-w-5xl">
         <AnimatedSection animation="fade-up-lg" className="text-center">
           <div className="accent-line bg-slate-400 mb-6 mx-auto" />
