@@ -3,7 +3,7 @@
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SERVICES } from "@/data/services";
 import { Instagram, Youtube, BookOpen } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const INSTAGRAM_URL = "https://www.instagram.com/artist.motion_fuburyu";
@@ -59,36 +59,42 @@ const SERVICE_CARDS = [
 export function ServicesSection() {
   const [instagramEmbedLoading, setInstagramEmbedLoading] = useState<Record<string, boolean>>({});
   const [instagramEmbedTimedOut, setInstagramEmbedTimedOut] = useState<Record<string, boolean>>({});
+  const [instagramInView, setInstagramInView] = useState<Record<string, boolean>>({});
+  const instagramRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  const [youtubeActivated, setYoutubeActivated] = useState<Record<string, boolean>>({});
   const [youtubeEmbedLoading, setYoutubeEmbedLoading] = useState<Record<string, boolean>>({});
-  const [youtubeEmbedTimedOut, setYoutubeEmbedTimedOut] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    const nextInstagram: Record<string, boolean> = {};
-    for (const sc of INSTAGRAM_FEATURED_POST_SHORTCODES) nextInstagram[sc] = true;
-    setInstagramEmbedLoading(nextInstagram);
-    setInstagramEmbedTimedOut({});
-
-    const nextYoutube: Record<string, boolean> = {};
-    for (const id of YOUTUBE_LATEST_VIDEO_IDS) nextYoutube[id] = true;
-    setYoutubeEmbedLoading(nextYoutube);
-    setYoutubeEmbedTimedOut({});
-
-    const timers: ReturnType<typeof setTimeout>[] = [];
+    if (!("IntersectionObserver" in window)) {
+      const fallback: Record<string, boolean> = {};
+      for (const sc of INSTAGRAM_FEATURED_POST_SHORTCODES) fallback[sc] = true;
+      setInstagramInView(fallback);
+      return;
+    }
+    const observers: IntersectionObserver[] = [];
     for (const sc of INSTAGRAM_FEATURED_POST_SHORTCODES) {
-      const t = setTimeout(() => {
-        setInstagramEmbedTimedOut((p) => ({ ...p, [sc]: true }));
-        setInstagramEmbedLoading((p) => ({ ...p, [sc]: false }));
-      }, 8000);
-      timers.push(t);
+      const el = instagramRefs.current[sc];
+      if (!el) continue;
+      const obs = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setInstagramInView((p) => ({ ...p, [sc]: true }));
+            setInstagramEmbedLoading((p) => ({ ...p, [sc]: true }));
+            obs.disconnect();
+            const t = setTimeout(() => {
+              setInstagramEmbedTimedOut((p) => ({ ...p, [sc]: true }));
+              setInstagramEmbedLoading((p) => ({ ...p, [sc]: false }));
+            }, 8000);
+            return () => clearTimeout(t);
+          }
+        },
+        { rootMargin: "200px" }
+      );
+      obs.observe(el);
+      observers.push(obs);
     }
-    for (const id of YOUTUBE_LATEST_VIDEO_IDS) {
-      const t = setTimeout(() => {
-        setYoutubeEmbedTimedOut((p) => ({ ...p, [id]: true }));
-        setYoutubeEmbedLoading((p) => ({ ...p, [id]: false }));
-      }, 8000);
-      timers.push(t);
-    }
-    return () => timers.forEach((t) => clearTimeout(t));
+    return () => observers.forEach((obs) => obs.disconnect());
   }, []);
 
   return (
@@ -200,36 +206,33 @@ export function ServicesSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
                   {INSTAGRAM_FEATURED_POST_SHORTCODES.map((shortcode) => (
                     <div key={shortcode}>
-                      <div className="relative aspect-square min-h-[260px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px] overflow-hidden bg-slate-100 border border-slate-200/80 shadow-sm">
+                      <div
+                        ref={(el) => { instagramRefs.current[shortcode] = el; }}
+                        className="relative aspect-square min-h-[260px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px] overflow-hidden bg-slate-100 border border-slate-200/80 shadow-sm"
+                      >
                         {instagramEmbedLoading[shortcode] && (
                           <div
                             className="absolute inset-0 grid place-items-center bg-slate-100"
                             aria-label="Instagramを読み込み中"
-                            style={{ position: "absolute" }}
                           >
                             <div className="w-10 h-10 rounded-full border-4 border-slate-300 border-t-slate-700 animate-spin" />
                           </div>
                         )}
-                        <iframe
-                          src={`https://www.instagram.com/p/${shortcode}/embed/`}
-                          title={`Instagram post ${shortcode}`}
-                          className="w-full h-full border-0"
-                          loading="lazy"
-                          allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          onLoad={() =>
-                            setInstagramEmbedLoading((p) => ({
-                              ...p,
-                              [shortcode]: false,
-                            }))
-                          }
-                          onError={() =>
-                            setInstagramEmbedLoading((p) => ({
-                              ...p,
-                              [shortcode]: false,
-                            }))
-                          }
-                        />
+                        {instagramInView[shortcode] && (
+                          <iframe
+                            src={`https://www.instagram.com/p/${shortcode}/embed/`}
+                            title={`Instagram post ${shortcode}`}
+                            className="w-full h-full border-0"
+                            allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            onLoad={() =>
+                              setInstagramEmbedLoading((p) => ({ ...p, [shortcode]: false }))
+                            }
+                            onError={() =>
+                              setInstagramEmbedLoading((p) => ({ ...p, [shortcode]: false }))
+                            }
+                          />
+                        )}
                       </div>
                       {instagramEmbedTimedOut[shortcode] && (
                         <p className="mt-2 text-xs text-slate-500">
@@ -270,43 +273,58 @@ export function ServicesSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
                   {YOUTUBE_LATEST_VIDEO_IDS.map((videoId) => (
                     <div key={videoId}>
-                      <div className="relative aspect-video min-h-[200px] sm:min-h-[240px] md:min-h-[260px] lg:min-h-[300px] overflow-hidden bg-slate-100 border border-slate-200/80 shadow-sm">
-                        {youtubeEmbedLoading[videoId] && (
-                          <div
-                            className="absolute inset-0 grid place-items-center bg-slate-100"
-                            aria-label="YouTubeを読み込み中"
-                            style={{ position: "absolute" }}
+                      <div className="relative aspect-video min-h-[200px] sm:min-h-[240px] md:min-h-[260px] lg:min-h-[300px] overflow-hidden bg-black border border-slate-200/80 shadow-sm">
+                        {!youtubeActivated[videoId] ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setYoutubeActivated((p) => ({ ...p, [videoId]: true }));
+                              setYoutubeEmbedLoading((p) => ({ ...p, [videoId]: true }));
+                            }}
+                            className="w-full h-full relative group"
+                            aria-label="動画を再生"
                           >
-                            <div className="w-10 h-10 rounded-full border-4 border-slate-300 border-t-slate-700 animate-spin" />
-                          </div>
+                            <img
+                              src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                              alt="YouTube動画のサムネイル"
+                              loading="lazy"
+                              className="w-full h-full object-cover opacity-85 group-hover:opacity-95 transition-opacity"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-xl group-hover:bg-red-500 transition-colors">
+                                <svg viewBox="0 0 24 24" fill="white" className="w-8 h-8 ml-1">
+                                  <path d="M8 5v14l11-7z" />
+                                </svg>
+                              </div>
+                            </div>
+                          </button>
+                        ) : (
+                          <>
+                            {youtubeEmbedLoading[videoId] && (
+                              <div
+                                className="absolute inset-0 grid place-items-center bg-slate-100"
+                                aria-label="YouTubeを読み込み中"
+                              >
+                                <div className="w-10 h-10 rounded-full border-4 border-slate-300 border-t-slate-700 animate-spin" />
+                              </div>
+                            )}
+                            <iframe
+                              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
+                              title="YouTube video"
+                              className="w-full h-full border-0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              onLoad={() =>
+                                setYoutubeEmbedLoading((p) => ({ ...p, [videoId]: false }))
+                              }
+                              onError={() =>
+                                setYoutubeEmbedLoading((p) => ({ ...p, [videoId]: false }))
+                              }
+                            />
+                          </>
                         )}
-                        <iframe
-                          src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-                          title="YouTube video"
-                          className="w-full h-full border-0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          loading="lazy"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          onLoad={() =>
-                            setYoutubeEmbedLoading((p) => ({
-                              ...p,
-                              [videoId]: false,
-                            }))
-                          }
-                          onError={() =>
-                            setYoutubeEmbedLoading((p) => ({
-                              ...p,
-                              [videoId]: false,
-                            }))
-                          }
-                        />
                       </div>
-                      {youtubeEmbedTimedOut[videoId] && (
-                        <p className="mt-2 text-xs text-slate-500">
-                          埋め込みが表示されない場合があります。ボタンからYouTubeでご覧ください。
-                        </p>
-                      )}
                     </div>
                   ))}
                 </div>
