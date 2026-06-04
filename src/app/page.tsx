@@ -6,6 +6,7 @@ import { NewsSection } from "@/components/sections/NewsSection";
 import { VideosSection } from "@/components/sections/VideosSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { VoiceSection } from "@/components/sections/VoiceSection";
+import { ColumnSection } from "@/components/sections/ColumnSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 import { VisitCounter } from "@/components/VisitCounter";
@@ -78,6 +79,7 @@ export default function HomePage() {
       <VideosSection />
       <ServicesSection />
       <VoiceSection />
+      <ColumnSection />
       <ContactSection />
       <Footer />
     </div>
