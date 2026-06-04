@@ -81,9 +81,12 @@ export function NewsSection() {
       <div className="container max-w-5xl">
         <AnimatedSection animation="fade-up-lg" className="text-center">
           <div className="accent-line bg-slate-400 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-8 text-slate-800 tracking-tight">
-            お知らせ
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
+            News
           </h2>
+          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-8">
+            お知らせ
+          </p>
           {newsForHome.length === 0 ? (
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
               お知らせはありません
