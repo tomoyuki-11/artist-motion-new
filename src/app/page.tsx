@@ -30,37 +30,102 @@ export const metadata: Metadata = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "SportsActivityLocation",
-  name: "アーティストモーション",
-  alternateName: "ARTIST MOTION",
-  url: "https://artist-motion.com",
-  telephone: "090-5464-6904",
-  email: "fuburyukodokai@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    addressRegion: "兵庫県",
-    addressLocality: "丹波市",
-    addressCountry: "JP",
-  },
-  areaServed: [
-    { "@type": "City", name: "丹波市" },
-    { "@type": "City", name: "三田市" },
-    { "@type": "City", name: "神戸市北区" },
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "SportsActivityLocation"],
+      "@id": "https://artist-motion.com/#business",
+      name: "アーティストモーション",
+      alternateName: "ARTIST MOTION",
+      description:
+        "丹波市・三田市・神戸市北区を中心に活動するスポーツ・文化教室。風舞流曲技太鼓・ベースボール（野球）・器械体操・フィットネスを提供しています。",
+      url: "https://artist-motion.com",
+      telephone: "090-5464-6904",
+      email: "fuburyukodokai@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "兵庫県",
+        addressLocality: "丹波市",
+        addressCountry: "JP",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 35.1735,
+        longitude: 135.0329,
+      },
+      areaServed: [
+        { "@type": "City", name: "丹波市" },
+        { "@type": "City", name: "三田市" },
+        { "@type": "City", name: "神戸市北区" },
+      ],
+      knowsAbout: [
+        "和太鼓",
+        "太鼓",
+        "曲技太鼓",
+        "ベースボール",
+        "野球",
+        "野球教室",
+        "器械体操",
+        "体操教室",
+        "フィットネス",
+        "子どもの習い事",
+        "丹波市 スポーツ",
+      ],
+      sameAs: [
+        "https://www.instagram.com/artist.motion_fuburyu",
+        "https://line.me/R/ti/p/@548udakm",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "アーティストモーション 事業内容",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "風舞流曲技太鼓教室",
+              description:
+                "丹波市・三田市・神戸市北区で開催。日本の伝統芸能・和太鼓を楽しく学べる教室です。",
+              url: "https://artist-motion.com/services/taiko",
+              areaServed: ["丹波市", "三田市", "神戸市北区"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "ベースボールクラブ（野球教室）",
+              description:
+                "丹波市を中心に活動する野球・ベースボール教室。子どもから大人まで参加できます。",
+              url: "https://artist-motion.com/services/baseball",
+              areaServed: ["丹波市"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "器械体操教室",
+              description:
+                "丹波市・神戸市北区で開催。逆立ち・でんぐり返しなど器械体操を楽しく学べます。",
+              url: "https://artist-motion.com/services/taiso",
+              areaServed: ["丹波市", "神戸市北区"],
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "フィットネスクラス",
+              description:
+                "筋トレ・ダイエット・体力づくりに特化したフィットネスクラス。",
+              url: "https://artist-motion.com/services/fitness",
+              areaServed: ["丹波市"],
+            },
+          },
+        ],
+      },
+    },
   ],
-  sameAs: [
-    "https://www.instagram.com/artist.motion_fuburyu",
-    "https://line.me/R/ti/p/@548udakm",
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "アーティストモーション 事業内容",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "風舞流曲技太鼓" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "ベースボールクラブ（野球）", areaServed: "丹波市" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "器械体操教室" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "フィットネスクラス" } },
-    ],
-  },
 };
 
 export default function HomePage() {
