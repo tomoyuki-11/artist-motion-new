@@ -73,21 +73,7 @@ export default async function ServiceDetailPage({
   const service = SERVICES[slug];
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-slate-50">
-        <Navbar />
-        <div className="container max-w-2xl mx-auto pt-28 pb-16 px-4">
-          <p className="text-slate-600 mb-6">サービスが見つかりません。</p>
-          <Link
-            href="/#services"
-            className="inline-flex items-center gap-2 text-slate-800 font-semibold hover:underline"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            事業内容一覧へ
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   const theme = slug && SERVICE_BADGE_LABEL[slug] ? SERVICE_THEME : null;
