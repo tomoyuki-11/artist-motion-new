@@ -60,6 +60,17 @@ export default function RootLayout({
   return (
     <html lang="ja" className="dark">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "ARTIST MOTION ~アーティストモーション~",
+              url: "https://artist-motion.com",
+            }),
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
