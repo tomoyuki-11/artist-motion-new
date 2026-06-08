@@ -158,9 +158,38 @@ export default async function ServiceDetailPage({
               {service.title}
             </h1>
           </div>
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed mb-6">
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed mb-10">
             {service.bodyText}
           </p>
+
+          {service.features && service.features.length > 0 && (
+            <section
+              className={`mb-10 rounded-2xl p-6 border ${theme ? `${theme.bg} ${theme.bgLight}` : "bg-slate-50 border-slate-200"}`}
+            >
+              <h2 className="text-lg md:text-xl font-bold text-slate-800 mb-4">
+                このクラスの特徴
+              </h2>
+              <ul className="space-y-3">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-1 w-5 h-5 rounded-full bg-slate-700 text-white text-xs flex items-center justify-center shrink-0 font-bold">
+                      {i + 1}
+                    </span>
+                    <span className="text-slate-700 leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {service.appeal && (
+            <section className="mb-10 rounded-2xl border border-slate-300 bg-white p-6">
+              <h2 className="text-lg md:text-xl font-bold text-slate-800 mb-3">
+                こんな方におすすめ
+              </h2>
+              <p className="text-slate-700 leading-relaxed">{service.appeal}</p>
+            </section>
+          )}
 
           {service.schedule && (
             <section
