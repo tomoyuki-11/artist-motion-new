@@ -1,6 +1,54 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+
+function CountdownBadge() {
+  const [daysLeft, setDaysLeft] = useState<number | null>(null);
+
+  useEffect(() => {
+    const calc = () => {
+      const eventDate = new Date("2026-09-20T00:00:00");
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const diff = Math.ceil(
+        (eventDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
+      );
+      setDaysLeft(diff);
+    };
+
+    calc();
+
+    const now = new Date();
+    const msUntilMidnight =
+      new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() -
+      now.getTime();
+    const timeout = setTimeout(calc, msUntilMidnight);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (daysLeft === null || daysLeft < 0) return null;
+  if (daysLeft === 0) {
+    return (
+      <div className="inline-block bg-white/90 text-slate-900 px-6 py-3 rounded-full font-bold text-xl font-koen mt-6">
+        本日開演！
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-6 mb-8 flex flex-col items-center gap-1">
+      <p className="text-white/80 text-sm font-koen">開演まで</p>
+      <div className="flex items-end gap-2">
+        <span className="text-6xl md:text-7xl font-bold text-white leading-none font-koen">
+          {daysLeft}
+        </span>
+        <span className="text-2xl text-white/90 pb-1 font-koen">日</span>
+      </div>
+    </div>
+  );
+}
 
 export function KoenOshiraseSection() {
   return (
@@ -18,6 +66,7 @@ export function KoenOshiraseSection() {
             <br />
             〜その一打、舞うが如く、嵐の如し〜
           </h3>
+          <CountdownBadge />
           <div className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto space-y-4">
             <p className="font-koen">
               令和8年9月20日（日）13時30分開演、丹波市山南町「やまなみホール」にて、第5回「響きの祭典」を開催いたします。
