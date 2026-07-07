@@ -13,14 +13,11 @@ const YOUTUBE_URL =
   "https://www.youtube.com/@%E9%A2%A8%E8%88%9E%E6%B5%81%E6%9B%B2%E6%8A%80%E5%A4%AA%E9%BC%93%E8%B0%B7%E5%8F%A3%E7%9C%9F";
 
 const INSTAGRAM_FEATURED_POST_SHORTCODES: string[] = [
-  "DYuAmEWj_H0",
-  "DYj4XqXD09B",
+  "DafaJkbD_4e",
+  "Dac2N1lj1_K",
 ];
 
-const YOUTUBE_LATEST_VIDEO_IDS: string[] = [
-  "rJLQLoUghSA",
-  "4t6s5xG1zfg",
-];
+const YOUTUBE_LATEST_VIDEO_IDS: string[] = ["bMB-8V6ii4Q", "rJLQLoUghSA"];
 
 const SERVICE_IMAGES = [
   "/images/taiko/shinichi_shihan1.jpeg",
@@ -57,12 +54,20 @@ const SERVICE_CARDS = [
 ] as const;
 
 export function ServicesSection() {
-  const [instagramEmbedLoading, setInstagramEmbedLoading] = useState<Record<string, boolean>>({});
-  const [instagramEmbedTimedOut, setInstagramEmbedTimedOut] = useState<Record<string, boolean>>({});
-  const [instagramInView, setInstagramInView] = useState<Record<string, boolean>>({});
+  const [instagramEmbedLoading, setInstagramEmbedLoading] = useState<
+    Record<string, boolean>
+  >({});
+  const [instagramEmbedTimedOut, setInstagramEmbedTimedOut] = useState<
+    Record<string, boolean>
+  >({});
+  const [instagramInView, setInstagramInView] = useState<
+    Record<string, boolean>
+  >({});
   const instagramRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  const [youtubeEmbedLoading, setYoutubeEmbedLoading] = useState<Record<string, boolean>>({});
+  const [youtubeEmbedLoading, setYoutubeEmbedLoading] = useState<
+    Record<string, boolean>
+  >({});
 
   useEffect(() => {
     const nextYoutube: Record<string, boolean> = {};
@@ -213,7 +218,9 @@ export function ServicesSection() {
                   {INSTAGRAM_FEATURED_POST_SHORTCODES.map((shortcode) => (
                     <div key={shortcode}>
                       <div
-                        ref={(el) => { instagramRefs.current[shortcode] = el; }}
+                        ref={(el) => {
+                          instagramRefs.current[shortcode] = el;
+                        }}
                         className="relative aspect-square min-h-[260px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px] overflow-hidden bg-slate-100 border border-slate-200/80 shadow-sm"
                       >
                         {instagramEmbedLoading[shortcode] && (
@@ -232,10 +239,16 @@ export function ServicesSection() {
                             allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
                             referrerPolicy="strict-origin-when-cross-origin"
                             onLoad={() =>
-                              setInstagramEmbedLoading((p) => ({ ...p, [shortcode]: false }))
+                              setInstagramEmbedLoading((p) => ({
+                                ...p,
+                                [shortcode]: false,
+                              }))
                             }
                             onError={() =>
-                              setInstagramEmbedLoading((p) => ({ ...p, [shortcode]: false }))
+                              setInstagramEmbedLoading((p) => ({
+                                ...p,
+                                [shortcode]: false,
+                              }))
                             }
                           />
                         )}
@@ -292,10 +305,16 @@ export function ServicesSection() {
                           loading="lazy"
                           referrerPolicy="strict-origin-when-cross-origin"
                           onLoad={() =>
-                            setYoutubeEmbedLoading((p) => ({ ...p, [videoId]: false }))
+                            setYoutubeEmbedLoading((p) => ({
+                              ...p,
+                              [videoId]: false,
+                            }))
                           }
                           onError={() =>
-                            setYoutubeEmbedLoading((p) => ({ ...p, [videoId]: false }))
+                            setYoutubeEmbedLoading((p) => ({
+                              ...p,
+                              [videoId]: false,
+                            }))
                           }
                         />
                       </div>
@@ -356,7 +375,6 @@ export function ServicesSection() {
             )}
           </div>
         </div>
-
       </div>
     </section>
   );
