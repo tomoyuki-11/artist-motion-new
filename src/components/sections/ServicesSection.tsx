@@ -33,25 +33,25 @@ const SERVICE_CARDS = [
   {
     slug: "taiko" as const,
     title: "風舞流曲技太鼓",
-    href: "/services/taiko",
+    href: "/taiko",
     imageAlt: "風舞流曲技太鼓（和太鼓・太鼓）",
   },
   {
     slug: "baseball" as const,
     title: "ベースボールクラブ",
-    href: "/services/baseball",
+    href: "/baseball",
     imageAlt: "野球・ベースボールクラブ",
   },
   {
     slug: "taiso" as const,
     title: "器械体操教室",
-    href: "/services/taiso",
+    href: "/taiso",
     imageAlt: "器械体操教室",
   },
   {
     slug: "fitness" as const,
     title: "フィットネスクラス",
-    href: "/services/fitness",
+    href: "/fitness",
     imageAlt: "フィットネスクラス",
   },
 ] as const;

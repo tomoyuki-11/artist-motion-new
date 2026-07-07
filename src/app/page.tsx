@@ -85,7 +85,7 @@ const organizationJsonLd = {
               name: "風舞流曲技太鼓教室",
               description:
                 "丹波市・三田市・神戸市北区で開催。日本の伝統芸能・和太鼓を楽しく学べる教室です。",
-              url: "https://artist-motion.com/services/taiko",
+              url: "https://artist-motion.com/taiko",
               areaServed: ["丹波市", "三田市", "神戸市北区"],
             },
           },
@@ -96,7 +96,7 @@ const organizationJsonLd = {
               name: "ベースボールクラブ（野球教室）",
               description:
                 "丹波市を中心に活動する野球・ベースボール教室。子どもから大人まで参加できます。",
-              url: "https://artist-motion.com/services/baseball",
+              url: "https://artist-motion.com/baseball",
               areaServed: ["丹波市"],
             },
           },
@@ -107,7 +107,7 @@ const organizationJsonLd = {
               name: "器械体操教室",
               description:
                 "丹波市・神戸市北区で開催。逆立ち・でんぐり返しなど器械体操を楽しく学べます。",
-              url: "https://artist-motion.com/services/taiso",
+              url: "https://artist-motion.com/taiso",
               areaServed: ["丹波市", "神戸市北区"],
             },
           },
@@ -118,7 +118,7 @@ const organizationJsonLd = {
               name: "フィットネスクラス",
               description:
                 "筋トレ・ダイエット・体力づくりに特化したフィットネスクラス。",
-              url: "https://artist-motion.com/services/fitness",
+              url: "https://artist-motion.com/fitness",
               areaServed: ["丹波市"],
             },
           },
