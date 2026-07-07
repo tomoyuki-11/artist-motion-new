@@ -130,7 +130,7 @@ export function NewsSection() {
                         )}
                         <Image
                           src={item.image_url!}
-                          alt=""
+                          alt={item.title}
                           fill
                           sizes="96px"
                           onLoad={() =>
@@ -204,7 +204,7 @@ export function NewsSection() {
                             )}
                             <Image
                               src={selectedNews.image_url!}
-                              alt=""
+                              alt={selectedNews.title}
                               fill
                               priority
                               sizes="(max-width: 768px) 100vw, 672px"

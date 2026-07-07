@@ -288,7 +288,7 @@ export default function AdminDashboard() {
                         <div className="relative mt-2 h-40 w-40">
                           <Image
                             src={n.image_url}
-                            alt=""
+                            alt={n.title}
                             fill
                             sizes="160px"
                             className="rounded object-cover"

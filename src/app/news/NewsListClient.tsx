@@ -86,7 +86,7 @@ export function NewsListClient() {
                         )}
                         <Image
                           src={item.image_url!}
-                          alt=""
+                          alt={item.title}
                           fill
                           sizes="96px"
                           loading="lazy"
