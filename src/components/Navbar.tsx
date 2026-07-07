@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Instagram, MessageCircle, Youtube } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -59,9 +60,12 @@ export function Navbar() {
           className="flex items-center space-x-2 cursor-pointer"
           onClick={handleLogoClick}
         >
-          <img
+          <Image
             src="/images/logo-transparent.png"
             alt="ARTIST MOTION Logo"
+            width={48}
+            height={48}
+            priority
             className="w-12 h-12 object-contain"
           />
           <span className="text-xl font-bold text-slate-800">

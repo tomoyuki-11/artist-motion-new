@@ -2,14 +2,51 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import Link from "next/link";
 import { FAQAccordion } from "./FAQAccordion";
+import { FAQ_CATEGORIES } from "@/data/faq";
+
+const FAQ_DESCRIPTION =
+  "風舞流曲技太鼓（和太鼓教室）・器械体操教室・ベースボールクラブ・フィットネスクラスに関するよくあるご質問をまとめています。入門の年齢や指導内容、出演依頼などについてご不明な点はこちらをご確認ください。";
 
 export const metadata: Metadata = {
   title: "よくある質問",
+  description: FAQ_DESCRIPTION,
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    type: "website",
+    url: "/faq",
+    title: "よくある質問 | ARTIST MOTION - アーティストモーション",
+    description: FAQ_DESCRIPTION,
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary",
+    title: "よくある質問 | ARTIST MOTION - アーティストモーション",
+    description: FAQ_DESCRIPTION,
+  },
 };
 
 export default function FAQ() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_CATEGORIES.flatMap((category) =>
+      category.items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      }))
+    ),
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Navbar />
 
       <main className="py-16 md:py-24">

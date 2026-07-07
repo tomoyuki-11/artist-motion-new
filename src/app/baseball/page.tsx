@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import { SERVICES } from "@/data/services";
@@ -90,10 +91,13 @@ export default function BaseballPage() {
           <div
             className={`aspect-[16/10] rounded-2xl overflow-hidden bg-slate-200 mb-10 relative ring-2 shadow-lg ${THEME.ring}`}
           >
-            <img
+            <Image
               src={service.image}
               alt={service.imageAlt}
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-cover"
             />
             <div
               className={`absolute inset-0 bg-gradient-to-t ${THEME.overlay} to-transparent pointer-events-none`}

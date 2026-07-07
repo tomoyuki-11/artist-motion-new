@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
 function CountdownBadge() {
@@ -85,24 +86,27 @@ export function KoenOshiraseSection() {
             </p>
           </div>
           <div className="mt-8 md:mt-12 max-w-xl mx-auto">
-            <img
+            <Image
               src="/images/koen_oshirase/poster.jpg"
               alt="第5回響の祭典"
+              width={1476}
+              height={1072}
+              sizes="(max-width: 576px) 100vw, 576px"
               className="w-full h-auto shadow-lg"
               loading="lazy"
-              decoding="async"
             />
           </div>
           <div className="mt-10 flex flex-col items-center gap-4">
             <p className="text-xl md:text-2xl font-bold text-white font-koen">
               観覧申し込みはコチラ！
             </p>
-            <img
+            <Image
               src="/images/koen_oshirase/qr-apply.jpeg"
               alt="観覧申し込みQRコード"
+              width={224}
+              height={224}
               className="w-48 h-48 md:w-56 md:h-56 object-contain bg-white p-2 rounded-lg shadow-lg"
               loading="lazy"
-              decoding="async"
             />
             <p className="text-sm md:text-base text-white/80 font-koen max-w-md">
               ※尚コチラの事前申し込みは来場者数を見込むもので座席の確保ではございません。

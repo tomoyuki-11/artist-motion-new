@@ -7,6 +7,10 @@ import {
   TESTIMONIAL_CATEGORIES,
   type TestimonialCategory,
 } from "@/data/testimonials";
+import { SERVICES } from "@/data/services";
+
+const SITE_BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://artist-motion.com";
 
 export const metadata: Metadata = {
   title: "お客様の声",
@@ -30,8 +34,33 @@ const testimonialsByCategory = (): {
 export default function Testimonials() {
   const grouped = testimonialsByCategory();
 
+  const testimonialsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "アーティストモーション",
+    alternateName: "ARTIST MOTION",
+    url: SITE_BASE_URL,
+    review: TESTIMONIALS.map((item) => ({
+      "@type": "Review",
+      itemReviewed: {
+        "@type": "Service",
+        name: SERVICES[item.category]?.title ?? TESTIMONIAL_CATEGORIES[item.category],
+      },
+      author: {
+        "@type": "Person",
+        name:
+          item.category === "taiko" ? "門下生" : "保護者・会員",
+      },
+      reviewBody: item.body,
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(testimonialsJsonLd) }}
+      />
       <Navbar />
 
       <section className="py-16 md:py-24">

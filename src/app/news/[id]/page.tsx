@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -108,11 +109,14 @@ export default async function NewsDetailPage({
               {item.title}
             </h1>
             {item.image_url && (
-              <div className="w-full rounded-2xl overflow-hidden mb-8 bg-slate-100 border border-slate-200">
-                <img
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-8 bg-slate-100 border border-slate-200">
+                <Image
                   src={item.image_url}
                   alt={item.title}
-                  className="w-full h-auto object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
                 />
               </div>
             )}

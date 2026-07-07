@@ -16,6 +16,7 @@ import {
 } from "@/lib/adminApi";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { toast } from "sonner";
 
 export default function AdminDashboard() {
@@ -284,11 +285,15 @@ export default function AdminDashboard() {
                         </div>
                       </div>
                       {n.image_url && (
-                        <img
-                          src={n.image_url}
-                          alt=""
-                          className="mt-2 rounded max-h-40 object-cover"
-                        />
+                        <div className="relative mt-2 h-40 w-40">
+                          <Image
+                            src={n.image_url}
+                            alt=""
+                            fill
+                            sizes="160px"
+                            className="rounded object-cover"
+                          />
+                        </div>
                       )}
                       <p className="text-slate-300 mt-2 whitespace-pre-wrap text-sm">
                         {n.body}

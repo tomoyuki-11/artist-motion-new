@@ -19,6 +19,7 @@ import {
 import type { NewsItem, NewsCommentItem } from "@/lib/adminApi";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
+import Image from "next/image";
 import Link from "next/link";
 
 export function NewsSection() {
@@ -35,15 +36,7 @@ export function NewsSection() {
 
   useEffect(() => {
     fetchNews()
-      .then((items) => {
-        setNews(items);
-        items
-          .filter((item) => item.image_url)
-          .forEach((item) => {
-            const img = new Image();
-            img.src = item.image_url!;
-          });
-      })
+      .then((items) => setNews(items))
       .catch(() => setNews([]));
   }, []);
 
@@ -135,11 +128,11 @@ export function NewsSection() {
                             <div className="w-6 h-6 rounded-full border-2 border-slate-300 border-t-slate-600 animate-spin" />
                           </div>
                         )}
-                        <img
-                          src={item.image_url}
+                        <Image
+                          src={item.image_url!}
                           alt=""
-                          loading="eager"
-                          decoding="async"
+                          fill
+                          sizes="96px"
                           onLoad={() =>
                             setNewsImageLoading((prev) => ({
                               ...prev,
@@ -152,7 +145,7 @@ export function NewsSection() {
                               [item.id]: false,
                             }))
                           }
-                          className={`w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover border border-slate-200 ${
+                          className={`rounded-lg object-cover border border-slate-200 ${
                             newsImageLoading[item.id] ? "opacity-0" : "opacity-100"
                           }`}
                         />
@@ -209,14 +202,15 @@ export function NewsSection() {
                                 <div className="w-10 h-10 rounded-full border-4 border-slate-300 border-t-slate-700 animate-spin" />
                               </div>
                             )}
-                            <img
-                              src={selectedNews.image_url}
+                            <Image
+                              src={selectedNews.image_url!}
                               alt=""
-                              loading="eager"
-                              decoding="async"
+                              fill
+                              priority
+                              sizes="(max-width: 768px) 100vw, 672px"
                               onLoad={() => setModalImageLoading(false)}
                               onError={() => setModalImageLoading(false)}
-                              className={`w-full h-full object-cover ${
+                              className={`object-cover ${
                                 modalImageLoading ? "opacity-0" : "opacity-100"
                               }`}
                             />
