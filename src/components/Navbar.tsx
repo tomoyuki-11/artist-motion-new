@@ -63,10 +63,10 @@ export function Navbar() {
           <Image
             src="/images/logo-transparent.png"
             alt="ARTIST MOTION Logo"
-            width={48}
-            height={48}
+            width={40}
+            height={40}
             priority
-            className="w-12 h-12 object-contain"
+            className="w-10 h-10 object-contain"
           />
           <span className="text-xl font-bold text-slate-800">
             ARTISTMOTION
