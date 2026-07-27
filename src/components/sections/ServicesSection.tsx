@@ -13,11 +13,11 @@ const YOUTUBE_URL =
   "https://www.youtube.com/@%E9%A2%A8%E8%88%9E%E6%B5%81%E6%9B%B2%E6%8A%80%E5%A4%AA%E9%BC%93%E8%B0%B7%E5%8F%A3%E7%9C%9F";
 
 const INSTAGRAM_FEATURED_POST_SHORTCODES: string[] = [
+  "DbP8jPaDwT-",
   "DafaJkbD_4e",
-  "Dac2N1lj1_K",
 ];
 
-const YOUTUBE_LATEST_VIDEO_IDS: string[] = ["bMB-8V6ii4Q", "rJLQLoUghSA"];
+const YOUTUBE_LATEST_VIDEO_IDS: string[] = ["tnWP32WZqBc", "bMB-8V6ii4Q"];
 
 const SERVICE_IMAGES = [
   "/images/taiko/shinichi_shihan1.jpeg",
