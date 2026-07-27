@@ -367,6 +367,28 @@ html {
   animation: heroImagesReveal 1.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes heroScrimReveal {
+  from { opacity: 0; }
+  to { opacity: 0.6; }
+}
+
+.animate-hero-scrim-reveal {
+  animation: heroScrimReveal 3.4s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+}
+
+@keyframes heroLogoReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.3;
+  }
+}
+
+.animate-hero-logo-reveal {
+  animation: heroLogoReveal 3.4s cubic-bezier(0.19, 1, 0.22, 1) 0.8s both;
+}
+
 @keyframes heroTextReveal {
   from {
     opacity: 0;
@@ -379,23 +401,23 @@ html {
 }
 
 .animate-hero-text-reveal {
-  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both;
+  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
 }
 
 .animate-hero-text-reveal-delay-1 {
-  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.6s both;
+  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2s both;
 }
 
 .animate-hero-text-reveal-delay-2 {
-  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.75s both;
+  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2.2s both;
 }
 
 .animate-hero-text-reveal-delay-3 {
-  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.9s both;
+  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2.4s both;
 }
 
 .animate-hero-text-reveal-delay-4 {
-  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2.05s both;
+  animation: heroTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2.6s both;
 }
 
 @keyframes scrollPulse {

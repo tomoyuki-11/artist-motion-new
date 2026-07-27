@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
+import NextImage from "next/image";
 import { useEffect, useState } from "react";
 
 const HERO_IMAGES = [
@@ -111,6 +112,31 @@ export function HeroSection() {
         </div>
       </div>
 
+      {/* Darkening scrim, syncs with the logo rising over the images */}
+      <div
+        className={`absolute inset-0 w-full h-full bg-slate-950 pointer-events-none z-[2] ${
+          heroReady ? "animate-hero-scrim-reveal" : "opacity-0"
+        }`}
+      />
+
+      {/* Logo rises up over the images before the wordmark appears */}
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none z-[3]">
+        <div
+          className={`relative w-[92vmin] h-[92vmin] max-w-4xl max-h-224 ${
+            heroReady ? "animate-hero-logo-reveal" : "opacity-0"
+          }`}
+        >
+          <NextImage
+            src="/images/logo-mark-hires.png"
+            alt=""
+            fill
+            priority
+            sizes="92vmin"
+            className="object-contain drop-shadow-2xl"
+          />
+        </div>
+      </div>
+
       {/* Hero Content */}
       <div className="absolute inset-0 w-full h-full p-3 md:p-5 lg:p-6 z-10 pointer-events-none">
         <div className="w-full h-full max-w-7xl mx-auto flex items-center justify-center">
@@ -156,7 +182,7 @@ export function HeroSection() {
 
       {/* Scroll Indicator */}
       <button
-        className={`absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-auto transition-opacity duration-700 delay-[3s] ${heroReady ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-auto transition-opacity duration-700 delay-[4.2s] ${heroReady ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         onClick={() => {
           document.getElementById("services")?.scrollIntoView({
             behavior: "smooth",
