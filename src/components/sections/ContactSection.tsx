@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -57,18 +58,13 @@ export function ContactSection() {
       />
       <div className="container relative max-w-2xl z-10">
         <AnimatedSection animation="scale" delay={100} className="space-y-10">
-          <div className="text-center">
-            <div className="accent-line bg-slate-400 mb-6 mx-auto" />
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-2">
-              Contact
-            </h2>
-            <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium">
-              お問い合わせ
-            </p>
-            <p className="text-lg md:text-xl text-slate-300 max-w-xl mx-auto mt-4">
-              下記フォームよりお気軽にどうぞ。
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="Contact"
+            label="お問い合わせ"
+            description="下記フォームよりお気軽にどうぞ。"
+            accentClassName="bg-slate-400"
+            tone="dark"
+          />
 
           <form onSubmit={handleContactSubmit} className="space-y-6 text-left">
             <div className="space-y-2">

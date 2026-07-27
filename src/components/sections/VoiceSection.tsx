@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SectionHeading } from "@/components/SectionHeading";
 import { getTestimonialsForHome } from "@/data/testimonials";
 import Link from "next/link";
 
@@ -15,16 +16,12 @@ export function VoiceSection() {
           animation="fade-up-lg"
           className="text-center mb-12 md:mb-16"
         >
-          <div className="accent-line bg-slate-500 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
-            Voice
-          </h2>
-          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-4">
-            お客様の声
-          </p>
-          <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto">
-            保護者・門下生・会員の皆様からいただいた声の一部をご紹介します。
-          </p>
+          <SectionHeading
+            eyebrow="Voice"
+            label="お客様の声"
+            accentClassName="bg-slate-500"
+            description="保護者・門下生・会員の皆様からいただいた声の一部をご紹介します。"
+          />
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {getTestimonialsForHome(4).map((item, index) => (

@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SectionHeading } from "@/components/SectionHeading";
 import { SERVICES } from "@/data/services";
 import { Instagram, Youtube, BookOpen } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -113,19 +114,14 @@ export function ServicesSection() {
       <div className="container max-w-6xl">
         <AnimatedSection
           animation="fade-up-lg"
-          className="mb-14 md:mb-20 text-center"
+          className="mb-14 md:mb-20"
         >
-          <div className="accent-line bg-slate-800 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
-            Service
-          </h2>
-          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-4">
-            事業内容
-          </p>
-          <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto">
-            ARTIST
-            MOTION〜アーティストモーション〜は、風舞流曲技太鼓・ベースボール・器械体操・フィットネスなど、心を豊かにする身体活動を提供しています。
-          </p>
+          <SectionHeading
+            eyebrow="Service"
+            label="事業内容"
+            accentClassName="bg-slate-800"
+            description="ARTIST MOTION〜アーティストモーション〜は、風舞流曲技太鼓・ベースボール・器械体操・フィットネスなど、心を豊かにする身体活動を提供しています。"
+          />
         </AnimatedSection>
       </div>
 

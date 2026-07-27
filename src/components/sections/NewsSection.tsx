@@ -7,6 +7,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SectionHeading } from "@/components/SectionHeading";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -73,13 +74,7 @@ export function NewsSection() {
     <section id="news" className="bg-indigo-50 text-slate-800 py-20 md:py-28">
       <div className="container max-w-5xl">
         <AnimatedSection animation="fade-up-lg" className="text-center">
-          <div className="accent-line bg-slate-400 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
-            News
-          </h2>
-          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-8">
-            お知らせ
-          </p>
+          <SectionHeading eyebrow="News" label="お知らせ" className="mb-8" />
           {newsForHome.length === 0 ? (
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
               お知らせはありません

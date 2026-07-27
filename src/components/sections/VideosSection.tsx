@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SectionHeading } from "@/components/SectionHeading";
 import { SITE_VIDEOS } from "@/data/videos";
 
 function primeVideoFirstFrame(video: HTMLVideoElement) {
@@ -39,16 +40,12 @@ export function VideosSection() {
           animation="fade-up-lg"
           className="text-center mb-10 md:mb-14"
         >
-          <div className="accent-line bg-slate-800 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
-            Scene
-          </h2>
-          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-2">
-            現場の記録
-          </p>
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-4">
-            活動の空気感をご覧ください
-          </p>
+          <SectionHeading
+            eyebrow="Scene"
+            label="現場の記録"
+            accentClassName="bg-slate-800"
+            description="活動の空気感をご覧ください"
+          />
         </AnimatedSection>
 
         {SITE_VIDEOS.length === 0 ? (

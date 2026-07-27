@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ExternalLink, X } from "lucide-react";
 import Link from "next/link";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SectionHeading } from "@/components/SectionHeading";
 import { COLUMNS, type ColumnItem } from "@/data/columns";
 import {
   Dialog,
@@ -23,16 +24,12 @@ export function ColumnSection() {
           animation="fade-up-lg"
           className="text-center mb-12 md:mb-16"
         >
-          <div className="accent-line bg-slate-500 mb-6 mx-auto" />
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-slate-800 tracking-tight">
-            Column
-          </h2>
-          <p className="text-xs md:text-sm tracking-widest text-slate-400 font-medium mb-4">
-            子育てコラム
-          </p>
-          <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto">
-            子育てに役立つ情報や日々の気づきをお届けします。
-          </p>
+          <SectionHeading
+            eyebrow="Column"
+            label="子育てコラム"
+            accentClassName="bg-slate-500"
+            description="子育てに役立つ情報や日々の気づきをお届けします。"
+          />
         </AnimatedSection>
 
         <ul className="list-none m-0 p-0 border-t border-slate-200">
