@@ -22,7 +22,7 @@ export function SectionHeading({
   return (
     <div className={cn("text-center", className)}>
       <div className={cn("accent-line mb-6 mx-auto", accentClassName)} />
-      <div className="relative overflow-hidden">
+      <div className="relative">
         <span
           aria-hidden
           className={cn(
