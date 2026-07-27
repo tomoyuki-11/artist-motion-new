@@ -20,26 +20,27 @@ export function SectionHeading({
   const isDark = tone === "dark";
 
   return (
-    <div className={cn("relative overflow-hidden text-center", className)}>
-      <span
-        aria-hidden
-        className={cn(
-          "pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[4rem] font-black leading-none tracking-tight sm:text-[6rem] md:text-[7.5rem] lg:text-[9rem]",
-          isDark ? "text-white/[0.06]" : "text-slate-900/[0.04]"
-        )}
-      >
-        {eyebrow}
-      </span>
-
+    <div className={cn("text-center", className)}>
       <div className={cn("accent-line mb-6 mx-auto", accentClassName)} />
-      <h2
-        className={cn(
-          "mb-2 text-2xl font-bold tracking-tight md:text-4xl lg:text-5xl",
-          isDark ? "text-white" : "text-slate-800"
-        )}
-      >
-        {eyebrow}
-      </h2>
+      <div className="relative overflow-hidden">
+        <span
+          aria-hidden
+          className={cn(
+            "pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[4rem] font-black leading-none tracking-tight sm:text-[6rem] md:text-[7.5rem] lg:text-[9rem]",
+            isDark ? "text-white/[0.06]" : "text-slate-900/[0.04]"
+          )}
+        >
+          {eyebrow}
+        </span>
+        <h2
+          className={cn(
+            "relative mb-2 text-2xl font-bold tracking-tight md:text-4xl lg:text-5xl",
+            isDark ? "text-white" : "text-slate-800"
+          )}
+        >
+          {eyebrow}
+        </h2>
+      </div>
       <p className="mb-4 text-xs font-medium tracking-widest text-slate-400 md:text-sm">
         {label}
       </p>
