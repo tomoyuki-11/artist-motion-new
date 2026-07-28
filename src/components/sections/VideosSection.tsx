@@ -97,6 +97,13 @@ export function VideosSection() {
               </div>
             </AnimatedSection>
 
+            {/* 現在のカテゴリ名(横スクロールしても固定) */}
+            {active !== ALL_LABEL && (
+              <p className="mb-3 text-xs font-medium tracking-wide text-slate-400">
+                {active}
+              </p>
+            )}
+
             {/* 水平スクロールフィルム */}
             {filtered.length === 0 ? (
               <p className="text-sm text-slate-400 tracking-wide py-8">動画はありません</p>
@@ -110,9 +117,6 @@ export function VideosSection() {
                   key={v.id}
                   className="flex-none w-[80vw] md:w-[45vw] lg:w-[38vw]"
                 >
-                  <p className="mb-2 text-xs font-medium tracking-wide text-slate-400">
-                    {v.label}
-                  </p>
                   <div className="relative aspect-video bg-black">
                     <video
                       className="w-full h-full object-cover"
