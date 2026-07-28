@@ -74,7 +74,7 @@ export function VideosSection() {
                       onClick={() => setActive(label)}
                       aria-label={label}
                       title={label}
-                      className={`flex items-center px-4 py-2.5 text-xs tracking-widest uppercase font-medium transition-all border-b-2 -mb-px ${
+                      className={`flex h-11 items-center px-4 text-xs tracking-widest uppercase font-medium transition-all border-b-2 -mb-px ${
                         active === label
                           ? "border-slate-800 text-slate-800 opacity-100"
                           : "border-transparent text-slate-400 opacity-40 hover:opacity-70"
