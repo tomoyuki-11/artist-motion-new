@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SITE_VIDEOS } from "@/data/videos";
@@ -17,13 +18,23 @@ function primeVideoFirstFrame(video: HTMLVideoElement) {
   }
 }
 
-const ALL_LABEL = "全て";
+const ALL_LABEL = "ALL";
 const CATEGORIES = [
   "ベースボールクラブ",
   "風舞流曲技太鼓",
   "器械体操教室",
   "フィットネスクラス",
 ];
+
+const CATEGORY_ICONS: Record<
+  string,
+  { src: string; width: number; height: number }
+> = {
+  "ベースボールクラブ": { src: "/images/icons/baseball-icon.png", width: 246, height: 246 },
+  "風舞流曲技太鼓": { src: "/images/icons/taiko-icon.png", width: 246, height: 268 },
+  "器械体操教室": { src: "/images/icons/gymnastics-icon.png", width: 167, height: 268 },
+  "フィットネスクラス": { src: "/images/icons/fitness-icon.png", width: 259, height: 206 },
+};
 
 export function VideosSection() {
   const labels = [ALL_LABEL, ...CATEGORIES];
@@ -55,19 +66,34 @@ export function VideosSection() {
             {/* フィルタータブ */}
             <AnimatedSection animation="fade-up" className="mb-8">
               <div className="flex items-center gap-0 border-b border-slate-200">
-                {labels.map((label) => (
-                  <button
-                    key={label}
-                    onClick={() => setActive(label)}
-                    className={`px-4 py-2 text-xs tracking-widest uppercase font-medium transition-colors border-b-2 -mb-px ${
-                      active === label
-                        ? "border-slate-800 text-slate-800"
-                        : "border-transparent text-slate-400 hover:text-slate-600"
-                    }`}
-                  >
-                    {label}
-                  </button>
-                ))}
+                {labels.map((label) => {
+                  const icon = CATEGORY_ICONS[label];
+                  return (
+                    <button
+                      key={label}
+                      onClick={() => setActive(label)}
+                      aria-label={label}
+                      title={label}
+                      className={`flex items-center px-4 py-2.5 text-xs tracking-widest uppercase font-medium transition-all border-b-2 -mb-px ${
+                        active === label
+                          ? "border-slate-800 text-slate-800 opacity-100"
+                          : "border-transparent text-slate-400 opacity-40 hover:opacity-70"
+                      }`}
+                    >
+                      {icon ? (
+                        <Image
+                          src={icon.src}
+                          alt={label}
+                          width={icon.width}
+                          height={icon.height}
+                          className="h-6 w-auto"
+                        />
+                      ) : (
+                        label
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </AnimatedSection>
 
@@ -84,6 +110,9 @@ export function VideosSection() {
                   key={v.id}
                   className="flex-none w-[80vw] md:w-[45vw] lg:w-[38vw]"
                 >
+                  <p className="mb-2 text-xs font-medium tracking-wide text-slate-400">
+                    {v.label}
+                  </p>
                   <div className="relative aspect-video bg-black">
                     <video
                       className="w-full h-full object-cover"
