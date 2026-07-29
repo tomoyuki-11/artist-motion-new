@@ -78,7 +78,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&family=Yuji+Boku&display=swap"
           rel="stylesheet"
         />
         <link rel="preconnect" href="https://api.artist-motion.com" crossOrigin="anonymous" />

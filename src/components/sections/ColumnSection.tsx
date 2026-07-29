@@ -18,7 +18,7 @@ export function ColumnSection() {
   const [selectedColumn, setSelectedColumn] = useState<ColumnItem | null>(null);
 
   return (
-    <section id="column" className="bg-indigo-50 text-slate-800 py-20 md:py-28">
+    <section id="column" className="bg-white text-slate-800 py-20 md:py-28">
       <div className="container max-w-5xl">
         <AnimatedSection
           animation="fade-up-lg"

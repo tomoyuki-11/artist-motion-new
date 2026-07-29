@@ -30,7 +30,9 @@ export const metadata: Metadata = {
     url: `/${SLUG}`,
     title: `${service.title} | ARTIST MOTION - アーティストモーション`,
     description: service.metaDescription,
-    images: [{ url: `${SITE_BASE_URL}${service.image}`, alt: service.imageAlt }],
+    images: [
+      { url: `${SITE_BASE_URL}${service.image}`, alt: service.imageAlt },
+    ],
     locale: "ja_JP",
   },
   twitter: {
@@ -105,7 +107,10 @@ export default function BaseballPage() {
           </div>
           <div className="mb-2">
             <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2 flex items-center gap-3">
-              <span className={`w-1.5 h-10 ${THEME.bar} rounded-full shrink-0`} aria-hidden />
+              <span
+                className={`w-1.5 h-10 ${THEME.bar} rounded-full shrink-0`}
+                aria-hidden
+              />
               {service.title}
             </h1>
           </div>
@@ -113,7 +118,9 @@ export default function BaseballPage() {
             {service.bodyText}
           </p>
 
-          <section className={`mb-10 rounded-2xl p-6 border ${THEME.bg} ${THEME.bgLight}`}>
+          <section
+            className={`mb-10 rounded-2xl p-6 border ${THEME.bg} ${THEME.bgLight}`}
+          >
             <h2 className="text-lg md:text-xl font-bold text-slate-800 mb-4">
               このクラスの特徴
             </h2>
@@ -123,7 +130,9 @@ export default function BaseballPage() {
                   <span className="mt-1 w-5 h-5 rounded-full bg-slate-700 text-white text-xs flex items-center justify-center shrink-0 font-bold">
                     {i + 1}
                   </span>
-                  <span className="text-slate-700 leading-relaxed">{feature}</span>
+                  <span className="text-slate-700 leading-relaxed">
+                    {feature}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -143,26 +152,40 @@ export default function BaseballPage() {
               <Calendar className={`w-6 h-6 shrink-0 ${THEME.icon}`} />
               開催概要
             </h2>
-            <dl className={`space-y-3 ${THEME.bg}/70 rounded-2xl p-6 border ${THEME.bgLight}`}>
+            <dl
+              className={`space-y-3 ${THEME.bg}/70 rounded-2xl p-6 border ${THEME.bgLight}`}
+            >
               <div className="flex gap-4">
-                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>曜日</dt>
+                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>
+                  曜日
+                </dt>
                 <dd className="text-slate-800 font-medium">
                   {service.schedule?.dayOfWeek || "—"}
                 </dd>
               </div>
               <div className="flex gap-4">
-                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>場所</dt>
+                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>
+                  場所
+                </dt>
                 <dd className="text-slate-800 font-medium whitespace-pre-line">
                   {(service.schedule?.venueName || "—").replace(/、/g, "\n")}
                 </dd>
               </div>
               <div className="flex gap-4">
-                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>時間</dt>
-                <dd className="text-slate-800 font-medium">{service.schedule?.time || "—"}</dd>
+                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>
+                  時間
+                </dt>
+                <dd className="text-slate-800 font-medium">
+                  {service.schedule?.time || "—"}
+                </dd>
               </div>
               <div className="flex gap-4">
-                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>対象</dt>
-                <dd className="text-slate-800 font-medium">{service.schedule?.target || "—"}</dd>
+                <dt className={`font-semibold w-20 shrink-0 ${THEME.icon}`}>
+                  対象
+                </dt>
+                <dd className="text-slate-800 font-medium">
+                  {service.schedule?.target || "—"}
+                </dd>
               </div>
             </dl>
           </section>
@@ -174,7 +197,9 @@ export default function BaseballPage() {
               <MapPin className={`w-6 h-6 shrink-0 ${THEME.icon}`} />
               場所の詳細
             </h2>
-            <p className="mb-4 text-slate-600 text-base font-medium">丹波市立山南中学校</p>
+            <p className="mb-4 text-slate-600 text-base font-medium">
+              丹波市立山南中学校
+            </p>
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6530.76269051374!2d135.02994289977903!3d35.07220337196108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600009e60978c7c9%3A0xf10559d21b1e55fb!2z5Li55rOi5biC56uL5bGx5Y2X5Lit5a2m5qCh!5e0!3m2!1sja!2sjp!4v1773465328355!5m2!1sja!2sjp"

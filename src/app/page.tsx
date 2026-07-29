@@ -5,6 +5,7 @@ import { KoenOshiraseSection } from "@/components/sections/KoenOshiraseSection";
 import { NewsSection } from "@/components/sections/NewsSection";
 import { VideosSection } from "@/components/sections/VideosSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { ProfileSection } from "@/components/sections/ProfileSection";
 import { VoiceSection } from "@/components/sections/VoiceSection";
 import { ColumnSection } from "@/components/sections/ColumnSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -143,6 +144,7 @@ export default function HomePage() {
       <NewsSection />
       <VideosSection />
       <ServicesSection />
+      <ProfileSection />
       <VoiceSection />
       <ColumnSection />
       <ContactSection />
