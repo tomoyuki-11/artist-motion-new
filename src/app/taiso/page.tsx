@@ -164,9 +164,20 @@ export default function TaisoPage() {
               場所の詳細
             </h2>
             <p className="mb-4 text-slate-600 text-base font-medium">
-              三田市狭間が丘教室{" "}
-              <span className="text-slate-500 text-sm font-normal">（調整中）</span>
+              三田市狭間が丘教室
             </p>
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.0087347337244!2d135.19772271204138!3d34.881126972742784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60006469edefa013%3A0xf2d30f26064dd698!2z54ut6ZaT44GM5LiY44Kz44Of44Ol44OL44OG44Kj44O844K744Oz44K_44O8!5e0!3m2!1sja!2sjp!4v1785722536695!5m2!1sja!2sjp"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="三田市狭間が丘教室の地図"
+              />
+            </div>
             <p className="mb-4 text-slate-600 text-base font-medium">丹波市山南町やまなみホール</p>
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <iframe
