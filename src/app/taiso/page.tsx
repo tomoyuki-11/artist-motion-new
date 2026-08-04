@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, MapPin } from "lucide-react";
+import { ArrowLeft, Calendar, Check, MapPin } from "lucide-react";
 import { SERVICES } from "@/data/services";
 
 const SITE_BASE_URL =
@@ -109,9 +109,7 @@ export default function TaisoPage() {
             <ul className="space-y-3">
               {service.features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1 w-5 h-5 rounded-full bg-slate-700 text-white text-xs flex items-center justify-center shrink-0 font-bold">
-                    {i + 1}
-                  </span>
+                  <Check className="mt-1 w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-slate-700 leading-relaxed">{feature}</span>
                 </li>
               ))}
@@ -204,6 +202,23 @@ export default function TaisoPage() {
                 title="スポーツクラブNASの地図"
               />
             </div>
+          </section>
+
+          <section className={`mt-12 pt-10 border-t ${THEME.border}`}>
+            <h2
+              className={`text-xl md:text-2xl font-bold mb-4 flex items-center gap-2 text-slate-800 ${THEME.bg} -mx-4 px-4 py-3 rounded-xl border ${THEME.bgLight}`}
+            >
+              保護者の声
+            </h2>
+            <p className="text-slate-700 leading-relaxed mb-6">
+              実際にご参加いただいている保護者の方からの声をご紹介しています。
+            </p>
+            <Link
+              href="/testimonials#taiso"
+              className="inline-flex items-center gap-2 rounded-lg bg-slate-800 text-white px-6 py-3 text-sm font-medium hover:bg-slate-700 transition-colors"
+            >
+              器械体操教室 保護者の声を見る →
+            </Link>
           </section>
         </article>
       </main>

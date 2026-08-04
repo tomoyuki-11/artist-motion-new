@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, MapPin } from "lucide-react";
+import { ArrowLeft, Calendar, Check, MapPin } from "lucide-react";
 import { SERVICES } from "@/data/services";
 
 const SITE_BASE_URL =
@@ -109,9 +109,7 @@ export default function TaikoPage() {
             <ul className="space-y-3">
               {service.features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1 w-5 h-5 rounded-full bg-slate-700 text-white text-xs flex items-center justify-center shrink-0 font-bold">
-                    {i + 1}
-                  </span>
+                  <Check className="mt-1 w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-slate-700 leading-relaxed">{feature}</span>
                 </li>
               ))}

@@ -83,7 +83,7 @@ export default function Testimonials() {
                   animation="fade-up-lg"
                   className="border-b border-slate-200 pb-12 last:border-b-0 last:pb-0"
                 >
-                  <h2 className="text-lg md:text-xl font-bold text-slate-800 mb-6">
+                  <h2 id={category} className="text-lg md:text-xl font-bold text-slate-800 mb-6 scroll-mt-24">
                     【{TESTIMONIAL_CATEGORIES[category]}】
                   </h2>
                   <ul className="list-none m-0 p-0 space-y-5">
