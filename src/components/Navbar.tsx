@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Instagram, MessageCircle, Youtube } from "lucide-react";
+import { InstagramIcon, LineIcon, YouTubeIcon } from "@/components/icons/BrandIcons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -149,7 +149,7 @@ export function Navbar() {
             className="text-slate-600 hover:text-orange-500 hover:bg-orange-100 transition p-1.5 rounded-full"
             aria-label="Instagram"
           >
-            <Instagram className="w-6 h-6 text-orange-500" />
+            <InstagramIcon className="w-6 h-6 text-orange-500" />
           </a>
           <a
             href="https://line.me/R/ti/p/@548udakm"
@@ -158,7 +158,7 @@ export function Navbar() {
             className="text-slate-600 hover:text-[#06C755] hover:bg-[#BBF7D0] transition p-1.5 rounded-full"
             aria-label="LINE"
           >
-            <MessageCircle className="w-6 h-6 text-[#06C755]" />
+            <LineIcon className="w-6 h-6 text-[#06C755]" />
           </a>
           <a
             href="https://www.youtube.com/@%E9%A2%A8%E8%88%9E%E6%B5%81%E6%9B%B2%E6%8A%80%E5%A4%AA%E9%BC%93%E8%B0%B7%E5%8F%A3%E7%9C%9F"
@@ -167,7 +167,7 @@ export function Navbar() {
             className="text-slate-600 hover:text-[#FF0000] hover:bg-[#FECACA] transition p-1.5 rounded-full"
             aria-label="YouTube"
           >
-            <Youtube className="w-6 h-6 text-[#FF0000]" />
+            <YouTubeIcon className="w-6 h-6 text-[#FF0000]" />
           </a>
 
           {isHome ? (
@@ -317,7 +317,7 @@ export function Navbar() {
                 className="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-white/10 hover:bg-white/20 transition gap-1"
                 aria-label="Instagram"
               >
-                <Instagram className="w-6 h-6 text-orange-400" />
+                <InstagramIcon className="w-6 h-6 text-orange-400" />
                 <span className="text-[10px] font-medium text-white/70">Instagram</span>
               </a>
               <a
@@ -327,7 +327,7 @@ export function Navbar() {
                 className="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-white/10 hover:bg-white/20 transition gap-1"
                 aria-label="LINE"
               >
-                <MessageCircle className="w-6 h-6 text-[#06C755]" />
+                <LineIcon className="w-6 h-6 text-[#06C755]" />
                 <span className="text-[10px] font-medium text-white/70">LINE</span>
               </a>
               <a
@@ -337,7 +337,7 @@ export function Navbar() {
                 className="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-white/10 hover:bg-white/20 transition gap-1"
                 aria-label="YouTube"
               >
-                <Youtube className="w-6 h-6 text-[#FF0000]" />
+                <YouTubeIcon className="w-6 h-6 text-[#FF0000]" />
                 <span className="text-[10px] font-medium text-white/70">YouTube</span>
               </a>
             </div>

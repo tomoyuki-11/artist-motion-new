@@ -1,6 +1,6 @@
 "use client";
 
-import { Instagram, MessageCircle, Youtube } from "lucide-react";
+import { InstagramIcon, LineIcon, YouTubeIcon } from "@/components/icons/BrandIcons";
 
 const INSTAGRAM_URL = "https://www.instagram.com/artist.motion_fuburyu";
 const LINE_URL = "https://line.me/R/ti/p/@548udakm";
@@ -88,7 +88,7 @@ export function Footer() {
                 className="text-slate-400 hover:text-orange-500 hover:bg-orange-100 transition-colors rounded-full"
                 aria-label="Instagram"
               >
-                <Instagram className="w-8 h-8 text-orange-500" />
+                <InstagramIcon className="w-8 h-8 text-orange-500" />
               </a>
               <a
                 href={LINE_URL}
@@ -97,7 +97,7 @@ export function Footer() {
                 className="text-slate-400 hover:text-[#06C755] hover:bg-[#BBF7D0] transition-colors rounded-full"
                 aria-label="LINE"
               >
-                <MessageCircle className="w-8 h-8 text-[#06C755]" />
+                <LineIcon className="w-8 h-8 text-[#06C755]" />
               </a>
               <a
                 href={YOUTUBE_URL}
@@ -106,7 +106,7 @@ export function Footer() {
                 className="text-slate-400 hover:text-[#FF0000] hover:bg-[#FECACA] transition-colors rounded-full"
                 aria-label="YouTube"
               >
-                <Youtube className="w-8 h-8 text-[#FF0000]" />
+                <YouTubeIcon className="w-8 h-8 text-[#FF0000]" />
               </a>
             </div>
           </div>
