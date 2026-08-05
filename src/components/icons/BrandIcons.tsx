@@ -1,5 +1,35 @@
 type IconProps = { className?: string };
 
+export function InstagramBadge({ className }: IconProps) {
+  return (
+    <span
+      className={`inline-flex items-center justify-center rounded-2xl shrink-0 ${className}`}
+      style={{
+        background:
+          "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)",
+      }}
+    >
+      <InstagramIcon className="w-[58%] h-[58%] text-white" />
+    </span>
+  );
+}
+
+export function YouTubeBadge({ className }: IconProps) {
+  return (
+    <span className={`inline-flex items-center justify-center rounded-full bg-[#FF0000] shrink-0 ${className}`}>
+      <YouTubeIcon className="w-[65%] h-[65%] text-white" />
+    </span>
+  );
+}
+
+export function LineBadge({ className }: IconProps) {
+  return (
+    <span className={`inline-flex items-center justify-center rounded-2xl bg-[#06C755] shrink-0 ${className}`}>
+      <LineIcon className="w-[65%] h-[65%] text-white" />
+    </span>
+  );
+}
+
 export function InstagramIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">

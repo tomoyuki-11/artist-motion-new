@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { InstagramIcon, LineIcon, YouTubeIcon } from "@/components/icons/BrandIcons";
+import { InstagramBadge, LineBadge, YouTubeBadge } from "@/components/icons/BrandIcons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -146,28 +146,28 @@ export function Navbar() {
             href="https://www.instagram.com/artist.motion_fuburyu"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-600 hover:text-orange-500 hover:bg-orange-100 transition p-1.5 rounded-full"
+            className="transition hover:opacity-75"
             aria-label="Instagram"
           >
-            <InstagramIcon className="w-6 h-6 text-orange-500" />
+            <InstagramBadge className="w-8 h-8" />
           </a>
           <a
             href="https://line.me/R/ti/p/@548udakm"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-600 hover:text-[#06C755] hover:bg-[#BBF7D0] transition p-1.5 rounded-full"
+            className="transition hover:opacity-75"
             aria-label="LINE"
           >
-            <LineIcon className="w-6 h-6 text-[#06C755]" />
+            <LineBadge className="w-8 h-8" />
           </a>
           <a
             href="https://www.youtube.com/@%E9%A2%A8%E8%88%9E%E6%B5%81%E6%9B%B2%E6%8A%80%E5%A4%AA%E9%BC%93%E8%B0%B7%E5%8F%A3%E7%9C%9F"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-600 hover:text-[#FF0000] hover:bg-[#FECACA] transition p-1.5 rounded-full"
+            className="transition hover:opacity-75"
             aria-label="YouTube"
           >
-            <YouTubeIcon className="w-6 h-6 text-[#FF0000]" />
+            <YouTubeBadge className="w-8 h-8" />
           </a>
 
           {isHome ? (
@@ -317,7 +317,7 @@ export function Navbar() {
                 className="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-white/10 hover:bg-white/20 transition gap-1"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="w-6 h-6 text-orange-400" />
+                <InstagramBadge className="w-8 h-8" />
                 <span className="text-[10px] font-medium text-white/70">Instagram</span>
               </a>
               <a
@@ -327,7 +327,7 @@ export function Navbar() {
                 className="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-white/10 hover:bg-white/20 transition gap-1"
                 aria-label="LINE"
               >
-                <LineIcon className="w-6 h-6 text-[#06C755]" />
+                <LineBadge className="w-8 h-8" />
                 <span className="text-[10px] font-medium text-white/70">LINE</span>
               </a>
               <a
@@ -337,7 +337,7 @@ export function Navbar() {
                 className="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-white/10 hover:bg-white/20 transition gap-1"
                 aria-label="YouTube"
               >
-                <YouTubeIcon className="w-6 h-6 text-[#FF0000]" />
+                <YouTubeBadge className="w-8 h-8" />
                 <span className="text-[10px] font-medium text-white/70">YouTube</span>
               </a>
             </div>

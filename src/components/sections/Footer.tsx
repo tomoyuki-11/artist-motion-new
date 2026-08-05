@@ -1,6 +1,6 @@
 "use client";
 
-import { InstagramIcon, LineIcon, YouTubeIcon } from "@/components/icons/BrandIcons";
+import { InstagramBadge, LineBadge, YouTubeBadge } from "@/components/icons/BrandIcons";
 
 const INSTAGRAM_URL = "https://www.instagram.com/artist.motion_fuburyu";
 const LINE_URL = "https://line.me/R/ti/p/@548udakm";
@@ -85,28 +85,28 @@ export function Footer() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-orange-500 hover:bg-orange-100 transition-colors rounded-full"
+                className="transition hover:opacity-75"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="w-8 h-8 text-orange-500" />
+                <InstagramBadge className="w-10 h-10" />
               </a>
               <a
                 href={LINE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-[#06C755] hover:bg-[#BBF7D0] transition-colors rounded-full"
+                className="transition hover:opacity-75"
                 aria-label="LINE"
               >
-                <LineIcon className="w-8 h-8 text-[#06C755]" />
+                <LineBadge className="w-10 h-10" />
               </a>
               <a
                 href={YOUTUBE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-[#FF0000] hover:bg-[#FECACA] transition-colors rounded-full"
+                className="transition hover:opacity-75"
                 aria-label="YouTube"
               >
-                <YouTubeIcon className="w-8 h-8 text-[#FF0000]" />
+                <YouTubeBadge className="w-10 h-10" />
               </a>
             </div>
           </div>

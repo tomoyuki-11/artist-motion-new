@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { InstagramIcon, YouTubeIcon } from "@/components/icons/BrandIcons";
+import { InstagramBadge, YouTubeBadge } from "@/components/icons/BrandIcons";
 import { useEffect, useRef, useState } from "react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/artist.motion_fuburyu";
@@ -162,7 +162,7 @@ export function ProfileSection() {
                     rel="noopener noreferrer"
                     className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-white font-medium hover:bg-orange-100 hover:text-orange-500 transition-colors"
                   >
-                    <InstagramIcon className="w-5 h-5 text-orange-500" />
+                    <InstagramBadge className="w-5 h-5" />
                     インスタグラム【公式】を見る
                   </a>
                   <a
@@ -171,7 +171,7 @@ export function ProfileSection() {
                     rel="noopener noreferrer"
                     className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-white font-medium hover:bg-orange-100 hover:text-orange-500 transition-colors"
                   >
-                    <InstagramIcon className="w-5 h-5 text-orange-500" />
+                    <InstagramBadge className="w-5 h-5" />
                     インスタグラム【現場の裏側】を見る
                   </a>
                 </div>
@@ -227,7 +227,7 @@ export function ProfileSection() {
                     rel="noopener noreferrer"
                     className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-white font-medium hover:bg-[#FECACA] transition-colors"
                   >
-                    <YouTubeIcon className="w-5 h-5 text-[#FF0000]" />
+                    <YouTubeBadge className="w-5 h-5" />
                     風舞流曲技太鼓のYouTubeを見る
                   </a>
                 </div>
