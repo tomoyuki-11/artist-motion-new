@@ -16,7 +16,7 @@ export function InstagramBadge({ className }: IconProps) {
 
 export function YouTubeBadge({ className }: IconProps) {
   return (
-    <span className={`inline-flex items-center justify-center rounded-full bg-[#FF0000] shrink-0 ${className}`}>
+    <span className={`inline-flex items-center justify-center rounded-2xl bg-[#FF0000] shrink-0 ${className}`}>
       <YouTubeIcon className="w-[65%] h-[65%] text-white" />
     </span>
   );
