@@ -30,4 +30,10 @@ export const SITE_VIDEOS: SiteVideo[] = [
     src: "/videos/video_609845645553434999-GkpsXeXK.mp4",
     poster: "/videos/posters/taiso_relay.jpg",
   },
+  {
+    id: "taiso_bakuten",
+    label: "器械体操教室",
+    title: "丹波市やまなみ小学生体操教室",
+    src: "/videos/taiso_bakuten.mp4",
+  },
 ];

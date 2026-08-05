@@ -122,7 +122,7 @@ export function VideosSection() {
                       className="w-full h-full object-cover"
                       controls
                       playsInline
-                      preload="auto"
+                      preload="metadata"
                       onLoadedMetadata={(e) => {
                         if (!v.poster) primeVideoFirstFrame(e.currentTarget);
                       }}
