@@ -117,10 +117,21 @@ export default function TaisoPage() {
           </section>
 
           <section className="mb-10 rounded-2xl border border-slate-300 bg-white p-6">
-            <h2 className="text-lg md:text-xl font-bold text-slate-800 mb-3">
+            <h2 className="text-lg md:text-xl font-bold text-slate-800 mb-4">
               こんな方におすすめ
             </h2>
-            <p className="text-slate-700 leading-relaxed">{service.appeal}</p>
+            <div className="flex flex-col md:flex-row gap-6 items-center">
+              <p className="text-slate-700 leading-relaxed md:flex-1">{service.appeal}</p>
+              <div className="relative w-full md:w-64 aspect-[4/3] rounded-xl overflow-hidden shrink-0">
+                <Image
+                  src="/images/taiso/taiso_storecchi_artist_motion.jpg"
+                  alt="器械体操教室 ストレッチの様子"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 256px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </section>
 
           <section className={`mt-12 pt-10 border-t ${THEME.border}`}>
