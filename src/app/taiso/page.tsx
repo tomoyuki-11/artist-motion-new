@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
+import { AutoplayVideo } from "@/components/AutoplayVideo";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Check, MapPin } from "lucide-react";
@@ -116,17 +117,11 @@ export default function TaisoPage() {
             </ul>
           </section>
 
-          <div className="mb-10 rounded-2xl overflow-hidden aspect-video bg-black">
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            >
-              <source src="/videos/zenten_artist_motion.mp4" type="video/mp4" />
-            </video>
+          <div className="mb-10 rounded-2xl overflow-hidden bg-black">
+            <AutoplayVideo
+              src="/videos/zenten_artist_motion.mp4"
+              className="w-full h-auto block"
+            />
           </div>
 
           <section className="mb-10 rounded-2xl border border-slate-300 bg-white p-6">
@@ -135,13 +130,13 @@ export default function TaisoPage() {
             </h2>
             <div className="flex flex-col md:flex-row gap-6 items-center">
               <p className="text-slate-700 leading-relaxed md:flex-1">{service.appeal}</p>
-              <div className="relative w-full md:w-64 aspect-[4/3] rounded-xl overflow-hidden shrink-0">
+              <div className="w-full md:w-64 rounded-xl overflow-hidden shrink-0">
                 <Image
                   src="/images/taiso/taiso_storecchi_artist_motion.jpg"
                   alt="器械体操教室 ストレッチの様子"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 256px"
-                  className="object-cover"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto block rounded-xl"
                 />
               </div>
             </div>
