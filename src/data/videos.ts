@@ -35,11 +35,13 @@ export const SITE_VIDEOS: SiteVideo[] = [
     label: "器械体操教室",
     title: "丹波市やまなみ小学生体操教室",
     src: "/videos/taiso_bakuten.mp4",
+    poster: "/videos/posters/taiso_bakuten.jpg",
   },
   {
     id: "tetsubo_artist_motion",
     label: "器械体操教室",
     title: "よし！出来た！",
     src: "/videos/tetsubo_artist_motion.mp4",
+    poster: "/videos/posters/tetsubo_artist_motion.jpg",
   },
 ];
