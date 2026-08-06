@@ -116,6 +116,19 @@ export default function TaisoPage() {
             </ul>
           </section>
 
+          <div className="mb-10 rounded-2xl overflow-hidden aspect-video bg-black">
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source src="/videos/zenten_artist_motion.mp4" type="video/mp4" />
+            </video>
+          </div>
+
           <section className="mb-10 rounded-2xl border border-slate-300 bg-white p-6">
             <h2 className="text-lg md:text-xl font-bold text-slate-800 mb-4">
               こんな方におすすめ
