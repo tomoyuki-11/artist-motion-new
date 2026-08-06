@@ -94,7 +94,7 @@ export const SERVICES: Record<
       dayOfWeek: "月〜木曜日",
       venueName:
         "三田市狭間が丘教室\n丹波市やまなみ教室\nスポーツクラブNAS教室",
-      time: "",
+      time: "お問い合わせください",
       target: "幼児〜小学生",
     },
   },
