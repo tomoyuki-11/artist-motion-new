@@ -10,8 +10,8 @@ const YOUTUBE_URL =
   "https://www.youtube.com/@%E9%A2%A8%E8%88%9E%E6%B5%81%E6%9B%B2%E6%8A%80%E5%A4%AA%E9%BC%93%E8%B0%B7%E5%8F%A3%E7%9C%9F";
 
 const INSTAGRAM_FEATURED_POST_SHORTCODES: string[] = [
-  "DZCqqKqj5v3",
-  "Dci3tgED3r_",
+  "DdDylAkjyaK",
+  "Dc5lPZMDxsC",
 ];
 
 const YOUTUBE_LATEST_VIDEO_IDS: string[] = ["InI1GpAOsM8", "3eFEKDrhoxQ"];
