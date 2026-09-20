@@ -1,9 +1,10 @@
-"use client";
+// "use client"; // ← 次回公演時にカウントダウンを復元する際は有効化してください
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react"; // ← CountdownBadge で使用
 import Image from "next/image";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
+/* ↓ 次回公演時に復元してください（"use client" と useState/useEffect のインポートも戻すこと）
 function CountdownBadge() {
   const [daysLeft, setDaysLeft] = useState<number | null>(null);
 
@@ -50,6 +51,7 @@ function CountdownBadge() {
     </div>
   );
 }
+*/
 
 export function KoenOshiraseSection() {
   return (
@@ -67,6 +69,8 @@ export function KoenOshiraseSection() {
             <br />
             〜その一打、舞うが如く、嵐の如し〜
           </h3>
+
+          {/* ↓ 次回公演時に復元してください
           <CountdownBadge />
           <div className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto space-y-4">
             <p className="font-koen">
@@ -85,17 +89,6 @@ export function KoenOshiraseSection() {
               皆様のご来場を心よりお待ちしております。
             </p>
           </div>
-          <div className="mt-8 md:mt-12 max-w-xl mx-auto">
-            <Image
-              src="/images/koen_oshirase/poster.jpg"
-              alt="第5回響の祭典"
-              width={1476}
-              height={1072}
-              sizes="(max-width: 576px) 100vw, 576px"
-              className="w-full h-auto shadow-lg"
-              loading="lazy"
-            />
-          </div>
           <div className="mt-10 flex flex-col items-center gap-4">
             <p className="text-xl md:text-2xl font-bold text-white font-koen">
               観覧申し込みはコチラ！
@@ -111,6 +104,31 @@ export function KoenOshiraseSection() {
             <p className="text-sm md:text-base text-white/80 font-koen max-w-md">
               ※尚コチラの事前申し込みは来場者数を見込むもので座席の確保ではございません。
             </p>
+          </div>
+          */}
+
+          <div className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto space-y-4 mt-4">
+            <p className="font-koen">
+              第5回響の祭典の公演は終了いたしました。
+            </p>
+            <p className="font-koen">
+              たくさんの方にご来場いただき、誠にありがとうございました。
+            </p>
+            <p className="font-koen">
+              出演者一同、皆様からの温かいご声援を力に、これからも精進してまいります。
+            </p>
+          </div>
+
+          <div className="mt-8 md:mt-12 max-w-xl mx-auto">
+            <Image
+              src="/images/koen_oshirase/poster.jpg"
+              alt="第5回響の祭典"
+              width={1476}
+              height={1072}
+              sizes="(max-width: 576px) 100vw, 576px"
+              className="w-full h-auto shadow-lg"
+              loading="lazy"
+            />
           </div>
         </AnimatedSection>
       </div>
