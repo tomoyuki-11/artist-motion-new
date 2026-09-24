@@ -1,7 +1,6 @@
 // "use client"; // ← 次回公演時にカウントダウンを復元する際は有効化してください
 
 // import { useState, useEffect } from "react"; // ← CountdownBadge で使用
-import Image from "next/image";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
 /* ↓ 次回公演時に復元してください（"use client" と useState/useEffect のインポートも戻すこと）
@@ -64,72 +63,9 @@ export function KoenOshiraseSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white tracking-tight font-koen">
             公演のお知らせ
           </h2>
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 text-white/95 font-koen">
-            第5回　響きの祭典
-            <br />
-            〜その一打、舞うが如く、嵐の如し〜
-          </h3>
-
-          {/* ↓ 次回公演時に復元してください
-          <CountdownBadge />
-          <div className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto space-y-4">
-            <p className="font-koen">
-              令和8年9月20日（日）13時30分開演、丹波市山南町「やまなみホール」にて、第5回「響きの祭典」を開催いたします。
-            </p>
-            <p className="font-koen">
-              毎年多くのお客様にご来場いただき、満席となる本公演。今年は新たに「鼓道会（こどうかい）」「鼓蝶会（こちょうかい）」「鼓粋会（こすいかい）」が加わり、さらに充実した舞台をお届けいたします。
-            </p>
-            <p className="font-koen">
-              出演者一人ひとりが技術と感性を磨き上げ、力強さと繊細さを兼ね備えた和太鼓の響きをお楽しみいただけます。
-            </p>
-            <p className="font-koen">
-              心を震わせる迫力の演奏と躍動感あふれるステージを、ぜひ会場でご体感ください。
-            </p>
-            <p className="font-koen">
-              皆様のご来場を心よりお待ちしております。
-            </p>
-          </div>
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <p className="text-xl md:text-2xl font-bold text-white font-koen">
-              観覧申し込みはコチラ！
-            </p>
-            <Image
-              src="/images/koen_oshirase/qr-apply.jpeg"
-              alt="観覧申し込みQRコード"
-              width={224}
-              height={224}
-              className="w-48 h-48 md:w-56 md:h-56 object-contain bg-white p-2 rounded-lg shadow-lg"
-              loading="lazy"
-            />
-            <p className="text-sm md:text-base text-white/80 font-koen max-w-md">
-              ※尚コチラの事前申し込みは来場者数を見込むもので座席の確保ではございません。
-            </p>
-          </div>
-          */}
-
-          <div className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto space-y-4 mt-4">
-            <p className="font-koen">
-              第5回響の祭典の公演は終了いたしました。
-            </p>
-            <p className="font-koen">
-              たくさんの方にご来場いただき、誠にありがとうございました。
-            </p>
-            <p className="font-koen">
-              出演者一同、皆様からの温かいご声援を力に、これからも精進してまいります。
-            </p>
-          </div>
-
-          <div className="mt-8 md:mt-12 max-w-xl mx-auto">
-            <Image
-              src="/images/koen_oshirase/poster.jpg"
-              alt="第5回響の祭典"
-              width={1476}
-              height={1072}
-              sizes="(max-width: 576px) 100vw, 576px"
-              className="w-full h-auto shadow-lg"
-              loading="lazy"
-            />
-          </div>
+          <p className="text-lg md:text-xl text-white/90 font-koen">
+            次回公演が決定次第、こちらにてお知らせいたします。
+          </p>
         </AnimatedSection>
       </div>
     </section>
