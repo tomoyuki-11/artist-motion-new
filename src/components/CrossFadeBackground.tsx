@@ -45,17 +45,20 @@ const IMAGES = [
 ];
 
 export function CrossFadeBackground() {
-  const [bottom, setBottom] = useState(0);
-  const [top, setTop] = useState(1);
-  const [topVisible, setTopVisible] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [next, setNext] = useState(1);
+  const [fading, setFading] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTopVisible(true);
+      // 上レイヤー（次の画像）をフェードイン開始
+      setFading(true);
+
       setTimeout(() => {
-        setBottom((prev) => (prev + 1) % IMAGES.length);
-        setTop((prev) => (prev + 1) % IMAGES.length);
-        setTopVisible(false);
+        // フェード完了：上レイヤーを transition なしで瞬時に非表示にしてから画像を差し替え
+        setFading(false);
+        setCurrent((c) => (c + 1) % IMAGES.length);
+        setNext((n) => (n + 1) % IMAGES.length);
       }, 1500);
     }, 5000);
 
@@ -64,24 +67,26 @@ export function CrossFadeBackground() {
 
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: -1 }}>
+      {/* 下レイヤー：常に表示、現在の画像 */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `url(${IMAGES[bottom]})`,
+          backgroundImage: `url(${IMAGES[current]})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
+      {/* 上レイヤー：フェードイン時のみトランジション、リセット時は即非表示 */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `url(${IMAGES[top]})`,
+          backgroundImage: `url(${IMAGES[next]})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: topVisible ? 1 : 0,
-          transition: "opacity 1.5s ease",
+          opacity: fading ? 1 : 0,
+          transition: fading ? "opacity 1.5s ease" : "none",
         }}
       />
     </div>
