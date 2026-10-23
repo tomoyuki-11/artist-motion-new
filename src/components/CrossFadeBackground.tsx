@@ -48,14 +48,34 @@ export function CrossFadeBackground() {
   const [current, setCurrent] = useState(0);
   const [next, setNext] = useState(1);
   const [fading, setFading] = useState(false);
+  // 全画像の中で最も縦横比が高いもの（height/width）を記録
+  const [maxRatio, setMaxRatio] = useState<number | null>(null);
+
+  // マウント時に全画像の縦横比を測定して最大値を設定
+  useEffect(() => {
+    let loaded = 0;
+    let max = 0;
+
+    IMAGES.forEach((src) => {
+      const img = new window.Image();
+      img.onload = () => {
+        const ratio = img.naturalHeight / img.naturalWidth;
+        if (ratio > max) max = ratio;
+        loaded++;
+        if (loaded === IMAGES.length) setMaxRatio(max);
+      };
+      img.onerror = () => {
+        loaded++;
+        if (loaded === IMAGES.length && max > 0) setMaxRatio(max);
+      };
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // 上レイヤー（次の画像）をフェードイン開始
       setFading(true);
-
       setTimeout(() => {
-        // フェード完了：上レイヤーを transition なしで瞬時に非表示にしてから画像を差し替え
         setFading(false);
         setCurrent((c) => (c + 1) % IMAGES.length);
         setNext((n) => (n + 1) % IMAGES.length);
@@ -66,15 +86,17 @@ export function CrossFadeBackground() {
   }, []);
 
   return (
-    <div className="relative w-full">
-      {/* 下レイヤー：自然なサイズでセクション高さを決める */}
+    // padding-top % = ratio × 100% でレスポンシブな固定高さを実現
+    <div
+      className="relative w-full"
+      style={{ paddingTop: maxRatio !== null ? `${maxRatio * 100}%` : "75%" }}
+    >
       <img
         src={IMAGES[current]}
         alt=""
         aria-hidden
-        className="w-full h-auto block"
+        className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* 上レイヤー：同じ領域に重ねてクロスフェード */}
       <img
         src={IMAGES[next]}
         alt=""
