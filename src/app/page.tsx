@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { KoenOshiraseSection } from "@/components/sections/KoenOshiraseSection";
+import { CrossFadeSection } from "@/components/sections/CrossFadeSection";
 import { NewsSection } from "@/components/sections/NewsSection";
 import { VideosSection } from "@/components/sections/VideosSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -142,17 +143,17 @@ export default function HomePage() {
       <HeroSection />
       <KoenOshiraseSection />
       <NewsSection />
-      <KoenOshiraseSection />
+      <CrossFadeSection />
       <VideosSection />
-      <KoenOshiraseSection />
+      <CrossFadeSection />
       <ServicesSection />
-      <KoenOshiraseSection />
+      <CrossFadeSection />
       <ProfileSection />
-      <KoenOshiraseSection />
+      <CrossFadeSection />
       <VoiceSection />
-      <KoenOshiraseSection />
+      <CrossFadeSection />
       <ColumnSection />
-      <KoenOshiraseSection />
+      <CrossFadeSection />
       <ContactSection />
       <Footer />
     </div>
