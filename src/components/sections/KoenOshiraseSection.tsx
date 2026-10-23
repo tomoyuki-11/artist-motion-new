@@ -57,7 +57,6 @@ export function KoenOshiraseSection() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
       <CrossFadeBackground />
-      <div className="absolute inset-0 w-full h-full bg-slate-900/70" />
 
       {/* ↓ 次回公演時に復元してください
       <div className="relative z-10 container max-w-5xl">
