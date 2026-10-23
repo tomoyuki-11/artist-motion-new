@@ -66,20 +66,20 @@ export function CrossFadeBackground() {
   }, []);
 
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: -1 }}>
+    <div className="absolute inset-0 overflow-hidden">
       {/* 下レイヤー：常に表示、現在の画像 */}
       <img
         src={IMAGES[current]}
         alt=""
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
+        className="absolute inset-0 w-full h-full object-cover object-center"
       />
       {/* 上レイヤー：フェードイン時のみトランジション、リセット時は即非表示 */}
       <img
         src={IMAGES[next]}
         alt=""
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
+        className="absolute inset-0 w-full h-full object-cover object-center"
         style={{
           opacity: fading ? 1 : 0,
           transition: fading ? "opacity 1.5s ease" : "none",
