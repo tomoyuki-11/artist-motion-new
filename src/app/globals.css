@@ -247,17 +247,7 @@ html {
     font-weight: 700;
   }
 
-  .koen-parallax-section::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url(/images/koen_oshirase/background.jpg);
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-  }
-
-  .btn-bold {
+.btn-bold {
     @apply px-8 py-4 bg-black text-white font-bold text-lg;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 0.05em;

@@ -2,6 +2,7 @@
 
 // import { useState, useEffect } from "react"; // ← CountdownBadge で使用
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { CrossFadeBackground } from "@/components/CrossFadeBackground";
 
 /* ↓ 次回公演時に復元してください（"use client" と useState/useEffect のインポートも戻すこと）
 function CountdownBadge() {
@@ -54,7 +55,8 @@ function CountdownBadge() {
 
 export function KoenOshiraseSection() {
   return (
-    <section className="koen-parallax-section relative w-full py-16 md:py-24">
+    <section className="relative w-full py-16 md:py-24">
+      <CrossFadeBackground />
       <div className="absolute inset-0 w-full h-full bg-slate-900/70" />
 
       <div className="relative z-10 container max-w-5xl">
