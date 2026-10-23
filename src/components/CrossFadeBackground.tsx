@@ -95,13 +95,13 @@ export function CrossFadeBackground() {
         src={IMAGES[current]}
         alt=""
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain bg-white"
       />
       <img
         src={IMAGES[next]}
         alt=""
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain bg-white"
         style={{
           opacity: fading ? 1 : 0,
           transition: fading ? "opacity 1.5s ease" : "none",
