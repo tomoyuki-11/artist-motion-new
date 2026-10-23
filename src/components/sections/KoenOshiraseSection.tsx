@@ -1,7 +1,7 @@
 // "use client"; // ← 次回公演時にカウントダウンを復元する際は有効化してください
 
 // import { useState, useEffect } from "react"; // ← CountdownBadge で使用
-import { AnimatedSection } from "@/components/AnimatedSection";
+// import { AnimatedSection } from "@/components/AnimatedSection"; // ← 次回公演時に復元
 import { CrossFadeBackground } from "@/components/CrossFadeBackground";
 
 /* ↓ 次回公演時に復元してください（"use client" と useState/useEffect のインポートも戻すこと）
@@ -59,6 +59,7 @@ export function KoenOshiraseSection() {
       <CrossFadeBackground />
       <div className="absolute inset-0 w-full h-full bg-slate-900/70" />
 
+      {/* ↓ 次回公演時に復元してください
       <div className="relative z-10 container max-w-5xl">
         <AnimatedSection animation="fade-up-lg" className="text-center">
           <div className="accent-line bg-white/90 mb-6 mx-auto" />
@@ -70,6 +71,7 @@ export function KoenOshiraseSection() {
           </p>
         </AnimatedSection>
       </div>
+      */}
     </section>
   );
 }
