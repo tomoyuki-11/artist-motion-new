@@ -98,7 +98,7 @@ export function CrossFadeBackground() {
     const r = imageRatios[src];
     return r && r > 1
       ? "absolute inset-0 w-full h-full object-cover"
-      : "absolute inset-0 w-full h-full object-contain bg-white";
+      : "absolute inset-0 w-full h-full object-contain bg-slate-200";
   };
 
   return (
