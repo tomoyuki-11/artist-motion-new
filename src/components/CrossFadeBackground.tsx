@@ -48,25 +48,33 @@ export function CrossFadeBackground() {
   const [current, setCurrent] = useState(0);
   const [next, setNext] = useState(1);
   const [fading, setFading] = useState(false);
-  // 全画像の中で最も縦横比が高いもの（height/width）を記録
   const [maxRatio, setMaxRatio] = useState<number | null>(null);
+  // 各画像の縦横比（height/width）を保持
+  const [imageRatios, setImageRatios] = useState<Record<string, number>>({});
 
-  // マウント時に全画像の縦横比を測定して最大値を設定
   useEffect(() => {
     let loaded = 0;
     let max = 0;
+    const ratios: Record<string, number> = {};
 
     IMAGES.forEach((src) => {
       const img = new window.Image();
       img.onload = () => {
         const ratio = img.naturalHeight / img.naturalWidth;
+        ratios[src] = ratio;
         if (ratio > max) max = ratio;
         loaded++;
-        if (loaded === IMAGES.length) setMaxRatio(max);
+        if (loaded === IMAGES.length) {
+          setMaxRatio(max);
+          setImageRatios({ ...ratios });
+        }
       };
       img.onerror = () => {
         loaded++;
-        if (loaded === IMAGES.length && max > 0) setMaxRatio(max);
+        if (loaded === IMAGES.length && max > 0) {
+          setMaxRatio(max);
+          setImageRatios({ ...ratios });
+        }
       };
       img.src = src;
     });
@@ -85,23 +93,25 @@ export function CrossFadeBackground() {
     return () => clearInterval(interval);
   }, []);
 
+  // 縦長（h > w）→ object-cover（余白なし）、横長 → object-contain bg-white（余白あり）
+  const fitClass = (src: string) => {
+    const r = imageRatios[src];
+    return r && r > 1
+      ? "absolute inset-0 w-full h-full object-cover"
+      : "absolute inset-0 w-full h-full object-contain bg-white";
+  };
+
   return (
-    // padding-top % = ratio × 100% でレスポンシブな固定高さを実現
     <div
       className="relative w-full"
       style={{ paddingTop: maxRatio !== null ? `${maxRatio * 100}%` : "75%" }}
     >
-      <img
-        src={IMAGES[current]}
-        alt=""
-        aria-hidden
-        className="absolute inset-0 w-full h-full object-contain bg-white"
-      />
+      <img src={IMAGES[current]} alt="" aria-hidden className={fitClass(IMAGES[current])} />
       <img
         src={IMAGES[next]}
         alt=""
         aria-hidden
-        className="absolute inset-0 w-full h-full object-contain bg-white"
+        className={fitClass(IMAGES[next])}
         style={{
           opacity: fading ? 1 : 0,
           transition: fading ? "opacity 1.5s ease" : "none",
