@@ -2,6 +2,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html,
+body {
+  background-color: #0f172a; /* slate-900: オーバースクロール時にクロスフェードが透けないように */
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
