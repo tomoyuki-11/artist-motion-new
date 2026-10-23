@@ -55,7 +55,7 @@ function CountdownBadge() {
 
 export function KoenOshiraseSection() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+    <section className="relative w-full overflow-hidden">
       <CrossFadeBackground />
 
       {/* ↓ 次回公演時に復元してください
