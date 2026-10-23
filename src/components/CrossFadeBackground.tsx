@@ -68,23 +68,19 @@ export function CrossFadeBackground() {
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: -1 }}>
       {/* 下レイヤー：常に表示、現在の画像 */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `url(${IMAGES[current]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+      <img
+        src={IMAGES[current]}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
       />
       {/* 上レイヤー：フェードイン時のみトランジション、リセット時は即非表示 */}
-      <div
+      <img
+        src={IMAGES[next]}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
         style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `url(${IMAGES[next]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
           opacity: fading ? 1 : 0,
           transition: fading ? "opacity 1.5s ease" : "none",
         }}
