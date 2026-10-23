@@ -144,10 +144,15 @@ export default function HomePage() {
       <NewsSection />
       <KoenOshiraseSection />
       <VideosSection />
+      <KoenOshiraseSection />
       <ServicesSection />
+      <KoenOshiraseSection />
       <ProfileSection />
+      <KoenOshiraseSection />
       <VoiceSection />
+      <KoenOshiraseSection />
       <ColumnSection />
+      <KoenOshiraseSection />
       <ContactSection />
       <Footer />
     </div>
