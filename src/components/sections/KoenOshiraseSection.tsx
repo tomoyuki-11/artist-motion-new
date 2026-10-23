@@ -55,7 +55,7 @@ function CountdownBadge() {
 
 export function KoenOshiraseSection() {
   return (
-    <section className="relative w-full py-16 md:py-24">
+    <section className="relative w-full py-32 md:py-48">
       <CrossFadeBackground />
       <div className="absolute inset-0 w-full h-full bg-slate-900/70" />
 
