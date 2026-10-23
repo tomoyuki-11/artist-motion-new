@@ -140,8 +140,8 @@ export default function HomePage() {
       <HashScroll />
       <Navbar />
       <HeroSection />
-      <KoenOshiraseSection />
       <NewsSection />
+      <KoenOshiraseSection />
       <VideosSection />
       <ServicesSection />
       <ProfileSection />
