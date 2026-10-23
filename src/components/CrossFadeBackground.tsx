@@ -88,7 +88,7 @@ export function CrossFadeBackground() {
         setCurrent((c) => (c + 1) % IMAGES.length);
         setNext((n) => (n + 1) % IMAGES.length);
       }, 2000);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
