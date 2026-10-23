@@ -87,7 +87,7 @@ export function CrossFadeBackground() {
         setFading(false);
         setCurrent((c) => (c + 1) % IMAGES.length);
         setNext((n) => (n + 1) % IMAGES.length);
-      }, 1500);
+      }, 2000);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -114,7 +114,7 @@ export function CrossFadeBackground() {
         className={fitClass(IMAGES[next])}
         style={{
           opacity: fading ? 1 : 0,
-          transition: fading ? "opacity 1.5s ease" : "none",
+          transition: fading ? "opacity 2s ease" : "none",
         }}
       />
     </div>
