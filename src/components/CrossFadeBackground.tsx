@@ -48,14 +48,42 @@ export function CrossFadeBackground() {
   const [current, setCurrent] = useState(0);
   const [next, setNext] = useState(1);
   const [fading, setFading] = useState(false);
+  const [maxRatio, setMaxRatio] = useState<number | null>(null);
+  // 各画像の縦横比（height/width）を保持
+  const [imageRatios, setImageRatios] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    let loaded = 0;
+    let max = 0;
+    const ratios: Record<string, number> = {};
+
+    IMAGES.forEach((src) => {
+      const img = new window.Image();
+      img.onload = () => {
+        const ratio = img.naturalHeight / img.naturalWidth;
+        ratios[src] = ratio;
+        if (ratio > max) max = ratio;
+        loaded++;
+        if (loaded === IMAGES.length) {
+          setMaxRatio(max);
+          setImageRatios({ ...ratios });
+        }
+      };
+      img.onerror = () => {
+        loaded++;
+        if (loaded === IMAGES.length && max > 0) {
+          setMaxRatio(max);
+          setImageRatios({ ...ratios });
+        }
+      };
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // 上レイヤー（次の画像）をフェードイン開始
       setFading(true);
-
       setTimeout(() => {
-        // フェード完了：上レイヤーを transition なしで瞬時に非表示にしてから画像を差し替え
         setFading(false);
         setCurrent((c) => (c + 1) % IMAGES.length);
         setNext((n) => (n + 1) % IMAGES.length);
@@ -65,21 +93,25 @@ export function CrossFadeBackground() {
     return () => clearInterval(interval);
   }, []);
 
+  // 縦長（h > w）→ object-cover（余白なし）、横長 → object-contain bg-white（余白あり）
+  const fitClass = (src: string) => {
+    const r = imageRatios[src];
+    return r && r > 1
+      ? "absolute inset-0 w-full h-full object-cover"
+      : "absolute inset-0 w-full h-full object-contain bg-slate-200";
+  };
+
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: -1 }}>
-      {/* 下レイヤー：常に表示、現在の画像 */}
-      <img
-        src={IMAGES[current]}
-        alt=""
-        aria-hidden
-        className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
-      />
-      {/* 上レイヤー：フェードイン時のみトランジション、リセット時は即非表示 */}
+    <div
+      className="relative w-full"
+      style={{ paddingTop: maxRatio !== null ? `${maxRatio * 100}%` : "75%" }}
+    >
+      <img src={IMAGES[current]} alt="" aria-hidden className={fitClass(IMAGES[current])} />
       <img
         src={IMAGES[next]}
         alt=""
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
+        className={fitClass(IMAGES[next])}
         style={{
           opacity: fading ? 1 : 0,
           transition: fading ? "opacity 1.5s ease" : "none",
