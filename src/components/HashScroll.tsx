@@ -24,7 +24,7 @@ export function HashScroll() {
     }
 
     // 初回ロード時：計測完了イベントを待つ（最大2秒でフォールバック）
-    const fallbackTimer = setTimeout(scroll, 2000);
+    const fallbackTimer = setTimeout(scroll, 4000);
 
     const onReady = () => {
       clearTimeout(fallbackTimer);

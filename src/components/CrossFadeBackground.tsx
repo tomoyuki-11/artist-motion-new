@@ -53,6 +53,14 @@ export function CrossFadeBackground() {
   const [imageRatios, setImageRatios] = useState<Record<string, number>>({});
 
   useEffect(() => {
+    // キャッシュされたmaxRatioがあれば即座に適用（ハッシュスクロールのレイアウトシフト対策）
+    try {
+      const cached = sessionStorage.getItem("crossfade-max-ratio");
+      if (cached) {
+        setMaxRatio(parseFloat(cached));
+      }
+    } catch {}
+
     let loaded = 0;
     let max = 0;
     const ratios: Record<string, number> = {};
@@ -67,6 +75,7 @@ export function CrossFadeBackground() {
         if (loaded === IMAGES.length) {
           setMaxRatio(max);
           setImageRatios({ ...ratios });
+          try { sessionStorage.setItem("crossfade-max-ratio", String(max)); } catch {}
         }
       };
       img.onerror = () => {
@@ -74,6 +83,7 @@ export function CrossFadeBackground() {
         if (loaded === IMAGES.length && max > 0) {
           setMaxRatio(max);
           setImageRatios({ ...ratios });
+          try { sessionStorage.setItem("crossfade-max-ratio", String(max)); } catch {}
         }
       };
       img.src = src;
