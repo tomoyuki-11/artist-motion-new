@@ -80,9 +80,10 @@ export function CrossFadeBackground() {
     });
   }, []);
 
-  // maxRatioがセットされDOMが更新された後にイベントを発火
+  // maxRatioがセットされDOMが更新された後にイベントを発火・フラグも立てる
   useEffect(() => {
     if (maxRatio !== null) {
+      (window as Window & { __crossfadeReady?: boolean }).__crossfadeReady = true;
       window.dispatchEvent(new CustomEvent("crossfade-layout-ready"));
     }
   }, [maxRatio]);
