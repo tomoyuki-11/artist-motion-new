@@ -7,36 +7,19 @@ export function HashScroll() {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
 
-    const scroll = () => {
+    const scrollTo = () => {
       const el = document.getElementById(hash);
-      if (el) {
-        requestAnimationFrame(() => {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-      }
+      if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
     };
 
-    // すでにクロスフェードの計測が完了していれば即スクロール（ソフトナビゲーション対応）
-    const w = window as Window & { __crossfadeReady?: boolean };
-    if (w.__crossfadeReady) {
-      scroll();
-      return;
-    }
+    // APIロード・画像ロードによるレイアウトシフトに対応するため複数回スクロール
+    const timers = [
+      setTimeout(scrollTo, 100),
+      setTimeout(scrollTo, 500),
+      setTimeout(scrollTo, 1200),
+    ];
 
-    // 初回ロード時：計測完了イベントを待つ（最大2秒でフォールバック）
-    const fallbackTimer = setTimeout(scroll, 4000);
-
-    const onReady = () => {
-      clearTimeout(fallbackTimer);
-      scroll();
-    };
-
-    window.addEventListener("crossfade-layout-ready", onReady, { once: true });
-
-    return () => {
-      clearTimeout(fallbackTimer);
-      window.removeEventListener("crossfade-layout-ready", onReady);
-    };
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   return null;
