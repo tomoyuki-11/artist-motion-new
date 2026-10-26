@@ -67,6 +67,7 @@ export function CrossFadeBackground() {
         if (loaded === IMAGES.length) {
           setMaxRatio(max);
           setImageRatios({ ...ratios });
+          window.dispatchEvent(new CustomEvent("crossfade-layout-ready"));
         }
       };
       img.onerror = () => {
@@ -74,6 +75,7 @@ export function CrossFadeBackground() {
         if (loaded === IMAGES.length && max > 0) {
           setMaxRatio(max);
           setImageRatios({ ...ratios });
+          window.dispatchEvent(new CustomEvent("crossfade-layout-ready"));
         }
       };
       img.src = src;
