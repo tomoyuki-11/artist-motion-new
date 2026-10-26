@@ -68,17 +68,19 @@ export function ServicesSection() {
             >
               <Link
                 href={card.href}
-                className="block h-full min-h-[40vh] lg:min-h-[60vh]"
+                className="block h-full min-h-[40vh] lg:min-h-[60vh] transition-opacity duration-150 active:opacity-70"
                 aria-label={`${card.title} - ${card.imageAlt}の詳細を見る`}
               >
-                <div
-                  className="relative w-full h-full min-h-[40vh] lg:min-h-[60vh] overflow-hidden bg-slate-900"
-                  style={{
-                    backgroundImage: `url(${bgImage})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "50% 50%",
-                  }}
-                >
+                <div className="relative w-full h-full min-h-[40vh] lg:min-h-[60vh] overflow-hidden bg-slate-900">
+                  {/* 背景画像：ホバーでズーム */}
+                  <div
+                    className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110"
+                    style={{
+                      backgroundImage: `url(${bgImage})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "50% 50%",
+                    }}
+                  />
                   <div
                     className="absolute inset-0"
                     style={{
