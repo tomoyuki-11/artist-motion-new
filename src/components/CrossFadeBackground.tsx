@@ -48,7 +48,8 @@ export function CrossFadeBackground() {
   const [current, setCurrent] = useState(0);
   const [next, setNext] = useState(1);
   const [fading, setFading] = useState(false);
-  const [maxRatio, setMaxRatio] = useState<number | null>(null);
+  // 実測した最大比率(縦/横)を初期値に設定してレイアウトシフトを防ぐ
+  const [maxRatio, setMaxRatio] = useState<number>(1.5);
   // 各画像の縦横比（height/width）を保持
   const [imageRatios, setImageRatios] = useState<Record<string, number>>({});
 
@@ -90,12 +91,10 @@ export function CrossFadeBackground() {
     });
   }, []);
 
-  // maxRatioがセットされDOMが更新された後にイベントを発火・フラグも立てる
+  // DOM更新後にイベント発火・フラグも立てる
   useEffect(() => {
-    if (maxRatio !== null) {
-      (window as Window & { __crossfadeReady?: boolean }).__crossfadeReady = true;
-      window.dispatchEvent(new CustomEvent("crossfade-layout-ready"));
-    }
+    (window as Window & { __crossfadeReady?: boolean }).__crossfadeReady = true;
+    window.dispatchEvent(new CustomEvent("crossfade-layout-ready"));
   }, [maxRatio]);
 
   useEffect(() => {
@@ -122,7 +121,7 @@ export function CrossFadeBackground() {
   return (
     <div
       className="relative w-full"
-      style={{ paddingTop: maxRatio !== null ? `${maxRatio * 100}%` : "75%" }}
+      style={{ paddingTop: `${maxRatio * 100}%` }}
     >
       <img src={IMAGES[current]} alt="" aria-hidden className={fitClass(IMAGES[current])} />
       <img
